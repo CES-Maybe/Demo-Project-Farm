@@ -1,0 +1,18 @@
+uuid: 8f180c18-6795-4ee2-ab89-8bcaf7afae77
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.farm
+id: node.farm.title
+field_name: title
+entity_type: node
+bundle: farm
+label: 'Farm Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
