@@ -1,0 +1,22 @@
+uuid: d73e3952-d2a9-4a76-b58d-696e5a3785a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.farm.layout_builder__layout
+    - node.type.farm
+  module:
+    - user
+id: node.farm.teaser
+targetEntityType: node
+bundle: farm
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  layout_builder__layout: true

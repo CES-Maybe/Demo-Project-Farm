@@ -1,0 +1,41 @@
+uuid: 3bbe4a12-6d32-4188-bd9c-657c8d4fc3cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.audio
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.farm
+    - node.type.product
+  module:
+    - media
+    - node
+id: farmer
+label: Farmer
+weight: 4
+is_admin: null
+permissions:
+  - 'create audio media'
+  - 'create document media'
+  - 'create farm content'
+  - 'create image media'
+  - 'create product content'
+  - 'create remote_video media'
+  - 'create video media'
+  - 'delete own audio media'
+  - 'delete own document media'
+  - 'delete own farm content'
+  - 'delete own image media'
+  - 'delete own product content'
+  - 'delete own remote_video media'
+  - 'delete own video media'
+  - 'edit own audio media'
+  - 'edit own document media'
+  - 'edit own farm content'
+  - 'edit own image media'
+  - 'edit own product content'
+  - 'edit own remote_video media'
+  - 'edit own video media'
