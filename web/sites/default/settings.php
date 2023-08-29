@@ -832,7 +832,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
+$databases['default']['default'] = array(
   'database' => 'drupal9',
   'username' => 'drupal9',
   'password' => 'drupal9',
@@ -843,4 +843,8 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_rlXpDxndpLTotLPKLQxLY2QmUqz32zvyyNOtMZvfjkBCeijFbZws4aLs8yup9oxt_2KGvGtzPg/sync';
+$settings['config_sync_directory'] = 'config';
+$settings['trusted_host_patterns'] =  [
+  '^www\.drupal\-farm\.lndo\.site$',
+  '^drupal\-farm\.lndo\.site$',
+];
