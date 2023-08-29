@@ -1,0 +1,14 @@
+uuid: e5e11fab-5dc9-4ec3-82d8-7ead3c300882
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.farmer
+  module:
+    - user
+id: user_remove_role_action.farmer
+label: 'Remove the Farmer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: farmer

@@ -9,6 +9,7 @@ dependencies:
     - commerce_order
     - contact
     - filter
+    - media
     - search
     - shortcut
     - system
@@ -27,4 +28,5 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
+  - 'view media'
   - 'view own commerce_order'

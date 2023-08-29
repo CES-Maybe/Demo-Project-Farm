@@ -1,0 +1,14 @@
+uuid: 695f090a-16a9-4694-a659-c6b181b90da3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.consumer
+  module:
+    - user
+id: user_remove_role_action.consumer
+label: 'Remove the Consumer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: consumer
