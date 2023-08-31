@@ -1,0 +1,21 @@
+uuid: 2e8e0a99-f0cc-46bf-a6a3-02465c410288
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+  theme:
+    - sshop
+id: cart
+theme: sshop
+region: navigation_collapsible
+weight: -7
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  label_display: visible
+  provider: commerce_cart
+  dropdown: true
+visibility: {  }

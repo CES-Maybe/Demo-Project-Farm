@@ -1,0 +1,57 @@
+uuid: dff361b9-30e9-40e4-ac09-3c8e4236b03c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_city
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_first_name
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_last_name
+  module:
+    - simplenews
+_core:
+  default_config_hash: 0EgrCr1nqvQDiGr3-igrZxlYsZ8JUcqEw4NgycEVs34
+id: simplenews_subscriber.simplenews_subscriber.default
+targetEntityType: simplenews_subscriber
+bundle: simplenews_subscriber
+mode: default
+content:
+  field_city:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_first_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_last_name:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  mail:
+    type: email_default
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true
