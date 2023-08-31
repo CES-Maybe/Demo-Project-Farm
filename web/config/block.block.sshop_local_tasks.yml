@@ -1,0 +1,22 @@
+uuid: 8c44ea91-5eeb-42d7-b9ad-3f958be025c1
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sshop
+_core:
+  default_config_hash: swyVFGmrlufac1lSZ7FLFVyBfshaYLxPolAWz_igNZI
+id: sshop_local_tasks
+theme: sshop
+region: content
+weight: -8
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -11,6 +11,8 @@ dependencies:
     - node.type.farm
     - node.type.product
   module:
+    - commerce_product
+    - commerce_store
     - media
     - node
 id: farmer
@@ -19,16 +21,20 @@ weight: 4
 is_admin: null
 permissions:
   - 'create audio media'
+  - 'create default commerce_product'
   - 'create document media'
   - 'create farm content'
   - 'create image media'
+  - 'create online commerce_store'
   - 'create product content'
   - 'create remote_video media'
   - 'create video media'
   - 'delete own audio media'
+  - 'delete own default commerce_product'
   - 'delete own document media'
   - 'delete own farm content'
   - 'delete own image media'
+  - 'delete own online commerce_store'
   - 'delete own product content'
   - 'delete own remote_video media'
   - 'delete own video media'
@@ -39,3 +45,6 @@ permissions:
   - 'edit own product content'
   - 'edit own remote_video media'
   - 'edit own video media'
+  - 'update own default commerce_product'
+  - 'update own online commerce_store'
+  - 'view commerce_store'
