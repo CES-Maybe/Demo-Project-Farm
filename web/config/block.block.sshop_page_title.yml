@@ -1,0 +1,27 @@
+uuid: e54881a5-1e11-430f-bb0d-c6c2ac77e6e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - sshop
+_core:
+  default_config_hash: Lzv8B3p_Bvswr50DCIFVwAz8EliQwAkhrf9HtbDdo8E
+id: sshop_page_title
+theme: sshop
+region: header
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '<front>'

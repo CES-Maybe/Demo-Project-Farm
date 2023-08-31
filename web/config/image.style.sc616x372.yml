@@ -1,0 +1,17 @@
+uuid: fc512634-4d54-40c5-b696-deb059d2607b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: I-I74UqbpIG5VjjRgLpvwj3OT3H-h-qLa8w7Q8Q9D_k
+name: sc616x372
+label: sc616x372
+effects:
+  68f9f752-8759-4363-a03c-f1aa32cb244c:
+    uuid: 68f9f752-8759-4363-a03c-f1aa32cb244c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 616
+      height: 372
+      anchor: center-center

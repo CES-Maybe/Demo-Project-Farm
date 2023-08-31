@@ -1,0 +1,10 @@
+uuid: 037a3ee1-c16b-4a85-8a72-271b104423cf
+langcode: en
+status: true
+dependencies: {  }
+id: farm_product
+label: 'Farm Product'
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: null
