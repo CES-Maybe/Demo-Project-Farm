@@ -1,0 +1,19 @@
+uuid: 1a7a1d44-cf5d-4fa1-a7c3-be808add85a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.attribute_unit
+field_name: attribute_unit
+entity_type: commerce_product_variation
+type: entity_reference
+settings:
+  target_type: commerce_product_attribute_value
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
