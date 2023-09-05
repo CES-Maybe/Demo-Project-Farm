@@ -1,13 +1,13 @@
-uuid: 385b08c1-d4ef-4d1d-97eb-34ab21e967c8
+uuid: d636f310-d44e-41a9-a4ed-7fc83d6fec3b
 langcode: en
 status: true
 dependencies: {  }
-id: farm_product
+id: farm_produc
 label: 'Farm Product'
 traits: {  }
 locked: false
 description: ''
-variationType: farm_product
+variationType: farm_produc
 variationTypes:
   - farm_product
 multipleVariations: true
