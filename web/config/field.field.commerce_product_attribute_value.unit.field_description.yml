@@ -1,0 +1,19 @@
+uuid: 0e55168c-c5a4-4a5c-87a6-663213b8cfdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_attribute.unit
+    - field.storage.commerce_product_attribute_value.field_description
+id: commerce_product_attribute_value.unit.field_description
+field_name: field_description
+entity_type: commerce_product_attribute_value
+bundle: unit
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
