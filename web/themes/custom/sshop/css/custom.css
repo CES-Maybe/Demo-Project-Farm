@@ -1,3 +1,54 @@
 .navbar-collapse {
   margin-top: 20px;
 }
+
+.card{
+  border: solid 2px gainsboro;
+  border-radius: 2px;
+}
+
+.card:hover {
+  border: #f36f36 2px solid;
+  border-radius: 2px;
+}
+
+.mb-5 {
+  margin-bottom: 35px;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card > .card-body > .row > .col-md-4 > img {
+  border: dotted 1px gainsboro;
+  border-radius: 2px;
+}
+
+.font-sm{
+  font-size: smaller;
+}
+
+.mt-5 {
+  margin-top: 35px;
+}
+
+.mt-4 {
+  margin-top: 15px;
+}
+
+.catalog-title {
+font-weight: bolder;
+font-size: x-large;
+}
+
+.ctl-btn {
+  border: solid 2px;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.ctl-btn:hover {
+  background-color: #f36f36;
+  color: white;
+}
