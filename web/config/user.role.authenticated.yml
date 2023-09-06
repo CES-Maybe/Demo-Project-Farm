@@ -10,14 +10,11 @@ dependencies:
     - commerce_order
     - commerce_payment
     - commerce_product
-    - commerce_wishlist
     - contact
     - filter
-    - fontawesome
     - media
     - search
     - shortcut
-    - simplenews
     - system
 _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
@@ -29,15 +26,12 @@ permissions:
   - 'access checkout'
   - 'access comments'
   - 'access content'
-  - 'access fontawesome additional settings'
   - 'access shortcuts'
   - 'access site-wide contact form'
-  - 'access wishlist'
   - 'manage own commerce_payment_method'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
-  - 'subscribe to newsletters'
   - 'use text format basic_html'
   - 'view commerce_product'
   - 'view media'
