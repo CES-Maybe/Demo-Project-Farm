@@ -8,10 +8,8 @@ module:
   big_pipe: 0
   block: 0
   block_content: 0
-  bootstrap_layouts: 0
   breakpoint: 0
   ckeditor5: 0
-  colorbox: 0
   comment: 0
   commerce: 0
   commerce_cart: 0
@@ -24,16 +22,9 @@ module:
   commerce_store: 0
   commerce_stripe_checkout: 0
   commerce_tax: 0
-  commerce_wishlist: 0
   config: 0
-  config_filter: 0
-  config_ignore: 0
-  config_update: 0
   contact: 0
   contextual: 0
-  ctools: 0
-  ctools_block: 0
-  ctools_views: 0
   datetime: 0
   dblog: 0
   devel: 0
@@ -41,24 +32,14 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
-  features: 0
-  features_ui: 0
   field: 0
   field_ui: 0
   file: 0
   filter: 0
-  font_iconpicker: 0
-  fontawesome: 0
-  fontawesome_iconpicker_widget: 0
   help: 0
   history: 0
   image: 0
   inline_entity_form: 0
-  jquery_ui: 0
-  jquery_ui_accordion: 0
-  jquery_ui_draggable: 0
-  jquery_ui_droppable: 0
-  jquery_ui_tabs: 0
   layout_builder: 0
   layout_discovery: 0
   link: 0
@@ -70,20 +51,11 @@ module:
   node: 0
   options: 0
   page_cache: 0
-  page_manager: 0
-  page_manager_ui: 0
-  panels: 0
-  panels_ipe: 0
   path: 0
   path_alias: 0
   profile: 0
-  quicktabs: 0
-  quicktabs_accordion: 0
-  quicktabs_jqueryui: 0
   search: 0
   shortcut: 0
-  simplenews: 0
-  simplenews_demo: 0
   state_machine: 0
   system: 0
   taxonomy: 0
@@ -93,14 +65,10 @@ module:
   tour: 0
   update: 0
   user: 0
-  views_slideshow: 0
-  views_slideshow_cycle: 0
   views_ui: 0
   views: 10
   standard: 1000
 theme:
   olivero: 0
   claro: 0
-  bootstrap: 0
-  sshop: 0
 profile: standard

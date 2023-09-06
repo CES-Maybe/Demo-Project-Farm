@@ -8,12 +8,10 @@ dependencies:
     - comment
     - commerce_checkout
     - commerce_product
-    - commerce_wishlist
     - contact
     - filter
     - media
     - search
-    - simplenews
     - system
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
@@ -26,9 +24,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
-  - 'access wishlist'
   - 'search content'
-  - 'subscribe to newsletters'
   - 'use text format restricted_html'
   - 'view commerce_product'
   - 'view media'
