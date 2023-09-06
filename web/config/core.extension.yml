@@ -35,11 +35,7 @@ module:
   history: 0
   image: 0
   inline_entity_form: 0
-  layout_builder: 0
-  layout_discovery: 0
   link: 0
-  media: 0
-  media_library: 0
   menu_link_content: 0
   menu_ui: 0
   mysql: 0
