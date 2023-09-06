@@ -12,15 +12,10 @@ module:
   ckeditor5: 0
   comment: 0
   commerce: 0
-  commerce_cart: 0
-  commerce_checkout: 0
   commerce_number_pattern: 0
   commerce_order: 0
-  commerce_payment: 0
   commerce_price: 0
-  commerce_product: 0
   commerce_store: 0
-  commerce_stripe_checkout: 0
   commerce_tax: 0
   config: 0
   contact: 0
