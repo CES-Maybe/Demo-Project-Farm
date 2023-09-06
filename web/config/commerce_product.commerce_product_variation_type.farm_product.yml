@@ -1,4 +1,4 @@
-uuid: 58b1096f-bace-465a-a81f-50c560cc47c5
+uuid: 037a3ee1-c16b-4a85-8a72-271b104423cf
 langcode: en
 status: true
 dependencies: {  }
@@ -7,4 +7,4 @@ label: 'Farm Product'
 traits: {  }
 locked: false
 orderItemType: default
-generateTitle: false
+generateTitle: null
