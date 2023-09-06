@@ -2,4 +2,3 @@ name: drupal-farm
 recipe: drupal9
 config:
   webroot: web
-  php: '8.1'
