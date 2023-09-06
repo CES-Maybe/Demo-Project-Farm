@@ -1,8 +1,0 @@
-uuid: 526f3b4e-6b01-42e9-a9c1-9ceeea4db7a4
-langcode: en
-status: true
-dependencies: {  }
-name: Categories
-vid: categories
-description: 'Product type'
-weight: 0
