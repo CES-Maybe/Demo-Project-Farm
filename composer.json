@@ -21,6 +21,8 @@
         "drupal/bootstrap_layouts": "^5.3",
         "drupal/colorbox": "^1.4",
         "drupal/commerce": "^2.36",
+        "drupal/commerce_product_limits": "^1.0",
+        "drupal/commerce_stock": "^1.1",
         "drupal/commerce_stripe_checkout": "^1.2",
         "drupal/commerce_wishlist": "3.x-dev@dev",
         "drupal/config_ignore": "^2.4",

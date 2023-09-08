@@ -9,7 +9,7 @@ _core:
 id: sshop_local_tasks
 theme: sshop
 region: content
-weight: -8
+weight: -6
 provider: null
 plugin: local_tasks_block
 settings:

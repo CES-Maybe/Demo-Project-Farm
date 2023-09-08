@@ -1,0 +1,9 @@
+uuid: 92634c73-797d-4108-b8dc-a0a63491c663
+langcode: en
+status: true
+dependencies: {  }
+id: local_sto
+label: 'Local '
+traits: {  }
+locked: false
+description: ''

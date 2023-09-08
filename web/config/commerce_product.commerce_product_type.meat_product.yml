@@ -1,0 +1,14 @@
+uuid: b2ea3bb2-b610-43ff-808d-4357616bab73
+langcode: en
+status: true
+dependencies: {  }
+id: meat_product
+label: 'Meat Product'
+traits: {  }
+locked: false
+description: ''
+variationType: meat_product
+variationTypes:
+  - meat_product
+multipleVariations: true
+injectVariationFields: true

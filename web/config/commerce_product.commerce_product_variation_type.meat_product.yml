@@ -1,0 +1,10 @@
+uuid: 1165a685-1a9e-4971-8e42-dbc7e59a52f0
+langcode: en
+status: true
+dependencies: {  }
+id: meat_product
+label: 'Meat Product'
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: null

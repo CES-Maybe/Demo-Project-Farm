@@ -1,0 +1,42 @@
+uuid: 291e8b4c-d7fe-4443-a6ac-947abaee3fb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.meat_product
+    - field.field.commerce_product.meat_product.body
+  module:
+    - commerce_product
+    - text
+id: commerce_product.meat_product.default
+targetEntityType: commerce_product
+bundle: meat_product
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    label: above
+    settings:
+      combine: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  created: true
+  stores: true
+  uid: true

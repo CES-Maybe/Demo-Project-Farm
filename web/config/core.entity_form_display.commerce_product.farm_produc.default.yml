@@ -10,7 +10,6 @@ dependencies:
     - field.field.commerce_product.farm_produc.field_related_products
     - field.field.commerce_product.farm_produc.field_reviews
   module:
-    - commerce
     - media_library
     - path
     - text
@@ -72,14 +71,10 @@ content:
       display_label: true
     third_party_settings: {  }
   stores:
-    type: commerce_entity_select
+    type: options_select
     weight: 0
     region: content
-    settings:
-      hide_single_entity: true
-      autocomplete_threshold: 7
-      autocomplete_size: 60
-      autocomplete_placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield

@@ -1,18 +1,24 @@
-uuid: c52c3cb7-c4c6-4ff6-b16d-fd39347410c1
+uuid: 4c528ec4-ce09-4756-af68-f2447a62c808
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.farm_product
+    - core.entity_view_mode.commerce_product_variation.wishlist
     - field.field.commerce_product_variation.farm_product.attribute_unit
     - field.field.commerce_product_variation.farm_product.field_product_available
   module:
     - commerce_price
     - commerce_stock_field
-id: commerce_product_variation.farm_product.default
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: commerce_product_variation.farm_product.wishlist
 targetEntityType: commerce_product_variation
 bundle: farm_product
-mode: default
+mode: wishlist
 content:
   field_product_available:
     type: commerce_stock_level_simple

@@ -21,13 +21,13 @@ mode: add_to_cart
 content:
   purchased_entity:
     type: commerce_product_variation_attributes
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   quantity:
     type: commerce_quantity
-    weight: 1
+    weight: 0
     region: content
     settings:
       placeholder: ''
