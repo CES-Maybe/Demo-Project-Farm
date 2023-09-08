@@ -1,7 +1,3 @@
-.navbar-collapse {
-  margin-top: 20px;
-}
-
 .card {
   border: solid 2px gainsboro;
   border-radius: 2px;
@@ -57,3 +53,24 @@
   float: right;
   margin-bottom: 10px;
 }
+.navbar-collapse {
+  margin-top: 20px;
+}
+.unit-item .fieldset-wrapper > div:first-child {
+  display: flex;
+  align-items: center;
+}
+.unit-item .fieldset-wrapper > div:first-child .form-item {
+  margin: 5px;
+}
+.unit-item .field--type-decimal input {
+  width: 105px;
+}
+.unit-item .attribute-widgets > fieldset > legend {
+  display: none;
+}
+.unit-item .form-inline {
+  display: flex;
+  flex-direction: column;
+}
+

@@ -1,24 +1,22 @@
-uuid: 7db73b6e-3d76-4182-8ccf-6c326359f2e6
+uuid: 5bd55cff-3a9e-4723-a733-4598027db01c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
-    - field.field.node.page.layout_builder__layout
-    - node.type.page
+    - commerce_product.commerce_product_type.meat_product
+    - field.field.commerce_product.meat_product.body
   module:
+    - commerce
     - path
     - text
-_core:
-  default_config_hash: SfpLhPExzvR0MgFp0Wp7CrmgEnhcqQ-fXIWFhbf4ue0
-id: node.page.default
-targetEntityType: node
-bundle: page
+id: commerce_product.meat_product.default
+targetEntityType: commerce_product
+bundle: meat_product
 mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 31
+    weight: 1
     region: content
     settings:
       rows: 9
@@ -38,26 +36,22 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 15
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 90
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 16
+  stores:
+    type: commerce_entity_select
+    weight: -10
     region: content
     settings:
-      display_label: true
+      hide_single_entity: true
+      autocomplete_threshold: 7
+      autocomplete_size: 60
+      autocomplete_placeholder: ''
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -78,4 +72,4 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  layout_builder__layout: true
+  variations: true

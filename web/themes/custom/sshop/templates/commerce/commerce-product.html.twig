@@ -24,7 +24,7 @@
 		<div class="product-left col-sm-6">
 			{{ product.field_image }}
 		</div>
-		<div class="product-right col-sm-6">
+		<div class="product-right col-sm-6 unit-item">
 			{{ product|without('variation_attributes', 'field_image', 'field_reviews', 'field_related_products','field_description') }}
 		</div>
 

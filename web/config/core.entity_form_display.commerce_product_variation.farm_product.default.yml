@@ -5,8 +5,10 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.farm_product
     - field.field.commerce_product_variation.farm_product.attribute_unit
+    - field.field.commerce_product_variation.farm_product.field_product_available
   module:
     - commerce_price
+    - commerce_stock_field
 id: commerce_product_variation.farm_product.default
 targetEntityType: commerce_product_variation
 bundle: farm_product
@@ -17,6 +19,22 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  commerce_stock_always_in_stock:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_product_available:
+    type: commerce_stock_level_absolute
+    weight: 91
+    region: content
+    settings:
+      step: '1'
+      custom_transaction_note: false
+      default_transaction_note: 'Transaction issued by stock level field.'
     third_party_settings: {  }
   list_price:
     type: commerce_list_price

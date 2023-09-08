@@ -21,24 +21,22 @@ bundle: slider
 mode: teaser
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: content
   field_image:
     type: image_url
-    weight: 1
-    region: content
     label: hidden
     settings:
       image_style: sc1982x714
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_link:
     type: link
-    weight: 2
-    region: content
     label: hidden
     settings:
       trim_length: 80
@@ -47,5 +45,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
   links: true

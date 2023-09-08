@@ -1,0 +1,23 @@
+uuid: 62888462-ad03-4a82-9328-0c3e80fca9f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.farm_product
+    - field.storage.commerce_product_variation.field_product_available
+  module:
+    - commerce_stock_field
+id: commerce_product_variation.farm_product.field_product_available
+field_name: field_product_available
+entity_type: commerce_product_variation
+bundle: farm_product
+label: 'Available quantity'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings: {  }
+field_type: commerce_stock_level
