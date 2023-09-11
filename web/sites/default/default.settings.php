@@ -652,7 +652,10 @@ $settings['update_free_access'] = FALSE;
  * changes to other environments that don't have the overrides.
  *
  * There are particular configuration values that are risky to override. For
- * example, overriding the list of installed modules in 'core.extension' is not
+ * example, overriding the list of installed modules in '
+ * 
+ * 
+ * tension' is not
  * supported as module install or uninstall has not occurred. Other examples
  * include field storage configuration, because it has effects on database
  * structure, and 'core.menu.static_menu_link_overrides' since this is cached in

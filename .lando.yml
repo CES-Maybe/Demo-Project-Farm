@@ -3,3 +3,8 @@ recipe: drupal9
 config:
   webroot: web
   php: '8.1'
+services:
+  appserver:
+    xdebug: debug
+    config:
+      php: php.ini
