@@ -14,7 +14,7 @@ services:
     scanner: false
     overrides:
       environment:
-        SIMPLETEST_BASE_URL: 'http://crown-testing-platform.lndo.site'
+        SIMPLETEST_BASE_URL: 'http://farm-demo.lndo.site'
         SIMPLETEST_DB: 'mysql://root:@database/database'
         MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
         PHP_IDE_CONFIG: 'serverName=appserver'
@@ -30,12 +30,6 @@ services:
         UPLOAD_LIMIT: 25600000
     hosts:
       - database
-  node:
-    type: 'node:14'
-    ssl: true
-    command: cd /app/web/themes/custom/crown && node_modules/.bin/gulp serve
-    globals:
-      gulp-cli: latest
 tooling:
   xdebug-on:
     service: appserver
