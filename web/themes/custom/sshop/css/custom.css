@@ -16,7 +16,7 @@
   padding: 10px;
 }
 
-.card > .card-body > .row > .col-md-4 > img {
+.card>.card-body>.row>.col-md-4>img {
   border: dotted 1px gainsboro;
   border-radius: 2px;
 }
@@ -53,24 +53,41 @@
   float: right;
   margin-bottom: 10px;
 }
+
 .navbar-collapse {
   margin-top: 20px;
 }
-.unit-item .fieldset-wrapper > div:first-child {
+
+.unit-item .fieldset-wrapper>div:first-child {
   display: flex;
   align-items: center;
 }
-.unit-item .fieldset-wrapper > div:first-child .form-item {
+
+.unit-item .fieldset-wrapper>div:first-child .form-item {
   margin: 5px;
 }
+
 .unit-item .field--type-decimal input {
   width: 105px;
 }
-.unit-item .attribute-widgets > fieldset > legend {
+
+.unit-item .attribute-widgets>fieldset>legend {
   display: none;
 }
+
 .unit-item .form-inline {
   display: flex;
   flex-direction: column;
 }
 
+.del-btn {
+  color: red;
+  border: solid 2px red;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.del-btn:hover {
+  background-color: red;
+  color: white;
+}
