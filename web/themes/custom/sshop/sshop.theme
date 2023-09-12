@@ -10,10 +10,13 @@ use Drupal\Component\Utility\Xss;
 use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
 
+
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for block.html.twig.
  */
-function sshop_theme_suggestions_block_alter(array &$suggestions, array $vars) {
+function sshop_theme_suggestions_block_alter(array &$suggestions, array $vars)
+{
   if (!empty($vars['elements']['#id'])) {
     $block = Block::load($vars['elements']['#id']);
     $suggestions[] = 'block__' . $block->getRegion() . '__' . $vars['elements']['#id'];
@@ -30,7 +33,8 @@ function sshop_theme_suggestions_block_alter(array &$suggestions, array $vars) {
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for taxonomy-term.html.twig.
  */
-function sshop_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $vars) {
+function sshop_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $vars)
+{
   if (isset($vars['elements'])) {
     /** @var \Drupal\taxonomy\TermInterface $term */
     $term = $vars['elements']['#taxonomy_term'];
@@ -42,7 +46,8 @@ function sshop_theme_suggestions_taxonomy_term_alter(array &$suggestions, array 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
-function sshop_preprocess_page(&$vars) {
+function sshop_preprocess_page(&$vars)
+{
   // Define and process copyright text.
   $copyright_text = theme_get_setting('copyright_text');
   if (!empty($copyright_text)) {
@@ -61,7 +66,8 @@ function sshop_preprocess_page(&$vars) {
 /**
  * Implements hook_preprocess_HOOK() for views-view.html.twig.
  */
-function sshop_preprocess_views_view(&$vars) {
+function sshop_preprocess_views_view(&$vars)
+{
   // Add class for each view with view_id and display_id values.
   if (isset($vars['id']) && isset($vars['display_id'])) {
     $vars['attributes']['class'][] = "views-view-{$vars['id']}-{$vars['display_id']}";
@@ -71,7 +77,8 @@ function sshop_preprocess_views_view(&$vars) {
 /**
  * Implements hook_preprocess_HOOK() for taxonomy-term--hot-category.html.twig.
  */
-function sshop_preprocess_taxonomy_term__hot_category(&$vars) {
+function sshop_preprocess_taxonomy_term__hot_category(&$vars)
+{
   if (!empty($vars['content']['field_image'][0]['#markup'])) {
     $bg_image_url = $vars['content']['field_image'][0]['#markup'];
     $bg_image_url = Xss::filter($bg_image_url);
@@ -82,7 +89,8 @@ function sshop_preprocess_taxonomy_term__hot_category(&$vars) {
 /**
  * Implements hool_preprocess_HOOK() for node--slider--teaser.html.twig.
  */
-function sshop_preprocess_node__slider__teaser(&$vars) {
+function sshop_preprocess_node__slider__teaser(&$vars)
+{
   if (!empty($vars['content']['field_image'][0]['#markup'])) {
     $bg_image_url = $vars['content']['field_image'][0]['#markup'];
     $bg_image_url = Xss::filter($bg_image_url);
@@ -98,7 +106,8 @@ function sshop_preprocess_node__slider__teaser(&$vars) {
 /**
  * Implements hool_preprocess_HOOK() for comment.html.twig.
  */
-function sshop_preprocess_comment(&$vars) {
+function sshop_preprocess_comment(&$vars)
+{
   // Configure permalink url.
   /** @var \Drupal\comment\CommentInterface $comment */
   $comment = $vars['elements']['#comment'];
@@ -108,7 +117,8 @@ function sshop_preprocess_comment(&$vars) {
 /**
  * Implements hool_preprocess_HOOK() for commerce-product.html.twig.
  */
-function sshop_preprocess_commerce_product(&$vars) {
+function sshop_preprocess_commerce_product(&$vars)
+{
   /** @var \Drupal\commerce_product\Entity\ProductInterface $product */
   $product = $vars['elements']['#commerce_product'];
 
@@ -123,7 +133,8 @@ function sshop_preprocess_commerce_product(&$vars) {
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function sshop_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+function sshop_form_system_theme_settings_alter(&$form, FormStateInterface $form_state)
+{
   // Lock Fluid container option in the General Bootstrap theme settings.
   $form['general']['container']['fluid_container']['#default_value'] = 1;
   $form['general']['container']['fluid_container']['#disabled'] = TRUE;
@@ -150,7 +161,8 @@ function sshop_form_system_theme_settings_alter(&$form, FormStateInterface $form
     '#default_value' => theme_get_setting('display_theme_credits'),
   ];
 
-  $message = t('
+  $message = t(
+    '
       Do you need help to customize this theme? We can help!<br>
       - web: <a href="@url">https://www.optasy.com</a><br>
       - e-mail: <a href="mailto:@email">contact@optasy.com</a><br>
