@@ -1,0 +1,8 @@
+farm_page.example:
+  path: '/farm-page/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\farm_page\Controller\FarmPageController::build'
+  requirements:
+    _permission: 'access content'
+

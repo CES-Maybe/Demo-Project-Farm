@@ -1,0 +1,4 @@
+administer farm_page configuration:
+  title: 'Administer farm_page configuration'
+  description: 'Optional description.'
+  restrict access: true
