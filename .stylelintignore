@@ -9,11 +9,3 @@
 # web/modules/custom/module_name/*
 
 # Compiled files in the theme.
-web/themes/custom/*/css/*
-web/libraries/*
-web/modules/custom/conbiz_themer/*
-web/modules/custom/gavias_pagebuilder/*
-web/modules/custom/gavias_sliderlayer/*
-web/modules/custom/gavias_view/*
-web/modules/custom/gaviasthemer/*
-web/themes/custom/conbiz/*

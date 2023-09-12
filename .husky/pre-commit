@@ -3,6 +3,6 @@
 
 npx lint-staged
 
-./vendor/bin/phpcbf --standard=Drupal -v --extensions=php,inc,module,theme --ignore=node_modules,vendor/*,web/core/*,web/vendor/*,web/modules/contrib/*,web/modules/custom/gaviasthemer/*,web/modules/custom/gavias_view/*,web/modules/custom/gavias_sliderlayer/*,web/modules/custom/gavias_pagebuilder/*,web/modules/custom/conbiz_themer/* ./web/modules/custom
+./vendor/bin/phpcbf --standard=Drupal -v --extensions=php,inc,module,theme --ignore=node_modules,vendor/*,web/core/*,web/vendor/*,web/modules/contrib/* ./web/modules/custom
 
 exit 0

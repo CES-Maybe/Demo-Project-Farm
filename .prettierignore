@@ -11,12 +11,6 @@ config/
 
 # Custom modules.
 # web/modules/custom/migration/*
-web/modules/custom/conbiz_themer/*
-web/modules/custom/gavias_pagebuilder/*
-web/modules/custom/gavias_sliderlayer/*
-web/modules/custom/gavias_view/*
-web/modules/custom/gaviasthemer/*
-web/themes/custom/conbiz/*
 
 # Custom module YAML.
 **/modules/custom/**/*.yml
