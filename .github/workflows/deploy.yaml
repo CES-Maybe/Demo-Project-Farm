@@ -41,11 +41,4 @@ jobs:
           git remote add pantheon $pantheon_repo
           git push pantheon HEAD:master -f
           commit_message=$(git log -1 --pretty=%B)
-        elif [[ ${{ github.ref }} == 'refs/tags/staging'* ]]; then
-          git remote add pantheon $pantheon_repo
-          git push pantheon HEAD:master -f
-          commit_message=$(git log -1 --pretty=%B)
-          terminus env:deploy $pantheon_site_name.test --note="Automated deploy: $commit_message"
-        elif [[ ${{ github.ref }} == 'refs/tags/release'* ]]; then
-          terminus env:deploy $pantheon_site_name.live --note="Automated deploy: $commit_message"
         fi

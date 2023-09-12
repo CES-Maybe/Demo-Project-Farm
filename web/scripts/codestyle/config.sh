@@ -2,5 +2,4 @@
 
 FILEPATHS=(
   "./web/modules/custom" \
-  "./web/themes"
 )
