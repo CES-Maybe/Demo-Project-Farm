@@ -52,6 +52,7 @@ jobs:
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
     - name: Install Terminus
+
       # We use cgr to avoid dependency conflicts
       uses: kopepasah/setup-pantheon-terminus@master
       with:
