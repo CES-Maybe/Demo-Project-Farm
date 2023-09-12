@@ -1,0 +1,54 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'release.v$RESOLVED_VERSION'
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'breaking-change'
+      - 'feature'
+      - 'enhancement'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'bugfix'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+autolabeler:
+  - label: 'chore'
+    files:
+      - '*.md'
+    title:
+      - '/docs/i'
+      - '/chore/i'
+      - '/ci/i'
+  - label: 'enhancement'
+    title:
+      - '/refactor/i'
+      - '/style/i'
+      - '/perf/i'
+  - label: 'bugfix'
+    title:
+      - '/fix/i'
+  - label: 'feature'
+    title:
+      - '/feat/i'
+  - label: 'breaking-change'
+    title:
+      - '/feat(major)/i'
+      - '/feat(breaking-change)/i'
+
+version-resolver:
+  major:
+    labels:
+      - 'breaking-change'
+  minor:
+    labels:
+      - 'feature'
+  patch:
+    labels:
+      - 'bugfix'
+      - 'enhancement'
+      - 'chore'
+  default: patch
+
+template: |
+  ## Changes
+
+  $CHANGES
