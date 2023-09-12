@@ -7,10 +7,6 @@ on:
       - main
     tags:
       - staging.*
-env:
-  php_version: '8.1'
-  pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
-  pantheon_site_name: '${{ secrets.PANTHEON_SITE_NAME }}'
 jobs:
   debug:
     name: Debug
@@ -25,39 +21,21 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@c0c6e403b6c6c44657450627093edddf3b905c5b # 2.9.0
-      env:
-        COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        php-version: ${{ env.php_version }}
-
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
-    - name: Get Composer cache directory
-      id: composer-cache-dir
-      run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-    - name: Composer install
-      run: composer install --no-dev --no-interaction --no-progress
-
-    - name: Place SSH key
-      uses: shimataro/ssh-key-action@6f350ca8484d8d55c2e361e74d17e638dabe713a # v2.1.0
+    - uses: actions/checkout@v1
+    - uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.PANTHEON_SSH_KEY }}
+        config: ${{ secrets.SSH_CONFIG }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-
-    - name: Install Terminus
-
-      # We use cgr to avoid dependency conflicts
+    - name: Installing Terminus
       uses: kopepasah/setup-pantheon-terminus@master
       with:
         pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
     - name: Deploy to Pantheon
+      env:
+        pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
+        pantheon_site_name: '${{ secrets.PANTHEON_SITE_NAME }}'
+        
       run: | 
         if [[ ${{ github.ref }} == 'refs/heads/main' ]]; then
           git remote add pantheon $pantheon_repo
