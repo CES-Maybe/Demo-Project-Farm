@@ -53,10 +53,9 @@ jobs:
 
     - name: Install Terminus
       # We use cgr to avoid dependency conflicts
-      run: |
-        composer global require consolidation/cgr:^2.0.5
-        cgr pantheon-systems/terminus:^2.6.1
-        terminus auth:login --machine-token=${{ secrets.PANTHEON_MACHINE_TOKEN }}
+      uses: kopepasah/setup-pantheon-terminus@master
+      with:
+        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
     - name: Deploy to Pantheon
       run: | 
         if [[ ${{ github.ref }} == 'refs/heads/main' ]]; then
