@@ -1,29 +1,22 @@
-uuid: 14bc5bf9-bafc-49e0-81db-4c51c6ee4493
+uuid: e893ca81-4745-4e49-a108-ad8758b2947c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.commerce_product.field_category
-    - field.storage.commerce_product.field_description
-    - field.storage.commerce_product.field_image
-    - image.style.catalog_thumbnail
     - system.menu.account
     - user.role.administrator
-    - user.role.farmer
+    - user.role.consumer
+    - user.role.site_admin
   module:
-    - commerce
-    - commerce_product
-    - commerce_wishlist
-    - media
-    - text
+    - address
     - user
-id: product_catalog
-label: 'Product Catalog'
+id: customers_list
+label: 'Customers List'
 module: views
 description: ''
 tag: ''
-base_table: commerce_product_field_data
-base_field: product_id
+base_table: users_field_data
+base_field: uid
 display:
   default:
     id: default
@@ -31,23 +24,23 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Product Catalog'
+      title: 'Customers List'
       fields:
-        title:
-          id: title
-          table: commerce_product_field_data
-          field: title
+        name:
+          id: name
+          table: users_field_data
+          field: name
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: null
-          entity_field: title
+          entity_type: user
+          entity_field: name
           plugin_id: field
-          label: ''
-          exclude: true
+          label: 'Customer Name'
+          exclude: false
           alter:
-            alter_text: true
-            text: '{{ title }}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -63,8 +56,8 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: true
-            ellipsis: true
+            word_boundary: false
+            ellipsis: false
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -76,7 +69,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -85,7 +78,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: user_name
           settings:
             link_to_entity: false
           group_column: value
@@ -98,17 +91,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        type:
-          id: type
-          table: commerce_product_field_data
-          field: type
+        field_address_administrative_area:
+          id: field_address_administrative_area
+          table: user__field_address
+          field: field_address_administrative_area
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: commerce_product
-          entity_field: type
-          plugin_id: commerce_entity_bundle
-          label: ''
+          plugin_id: subdivision
+          label: 'Address (field_address:administrative_area)'
           exclude: true
           alter:
             alter_text: false
@@ -141,7 +132,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -149,32 +140,16 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          hide_single_bundle: true
-        stores_target_id:
-          id: stores_target_id
-          table: commerce_product__stores
-          field: stores_target_id
+          display_name: true
+        field_address_country_code:
+          id: field_address_country_code
+          table: user__field_address
+          field: field_address_country_code
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: commerce_product
-          entity_field: stores
-          plugin_id: field
-          label: ''
+          plugin_id: country
+          label: 'Address (field_address:country_code)'
           exclude: true
           alter:
             alter_text: false
@@ -207,7 +182,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -215,293 +190,20 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_image:
-          id: field_image
-          table: commerce_product__field_image
-          field: field_image
+          display_name: true
+        field_address_address_line1:
+          id: field_address_address_line1
+          table: user__field_address
+          field: field_address_address_line1
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: media_thumbnail
-          settings:
-            image_link: ''
-            image_style: catalog_thumbnail
-            image_loading:
-              attribute: lazy
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        variations_target_id:
-          id: variations_target_id
-          table: commerce_product__variations
-          field: variations_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: commerce_product
-          entity_field: variations
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: commerce_wishlist_item_table
-          settings:
-            link: 1
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_category:
-          id: field_category
-          table: commerce_product__field_category
-          field: field_category
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        product_id:
-          id: product_id
-          table: commerce_product_field_data
-          field: product_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: commerce_product
-          entity_field: product_id
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_description:
-          id: field_description
-          table: commerce_product__field_description
-          field: field_description
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
+          plugin_id: standard
+          label: Address
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"card border mb-5\">\r\n\t<div class=\"card-body\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t{{ field_image }}\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-md-8\">\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col-md-9 catalog-title\">{{ title }}</div>\r\n\t\t\t\t\t<div class=\"col-md-3 font-sm\">Product of\r\n\t\t\t\t\t\t{{ stores_target_id }}</div>\r\n\t\t\t\t\t<div class=\"col-md-12 mt-4\">{{ field_description }}</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t\t<div class=\"col-md-8 mt-5\">Category:\r\n\t\t\t\t\t\t\t{{ field_category }}</div>\r\n\t\t\t\t\t\t<div class=\"col-md-4 mt-5\">\r\n\t\t\t\t\t\t\t<a href=\"/product/{{ product_id }}\"><span class=\"ctl-btn\">See details</span></a>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+            text: '{{ field_address_address_line1 }}, {{ field_address_administrative_area }}, {{ field_address_country_code }}'
             make_link: false
             path: ''
             absolute: false
@@ -530,7 +232,58 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+        created:
+          id: created
+          table: users_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: created
+          plugin_id: field
+          label: Created
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -539,9 +292,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_trimmed
+          type: timestamp
           settings:
-            trim_length: 200
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -552,6 +307,123 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        mail:
+          id: mail
+          table: users_field_data
+          field: mail
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: mail
+          plugin_id: field
+          label: Email
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        edit_user:
+          id: edit_user
+          table: users
+          field: edit_user
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          plugin_id: entity_link_edit
+          label: Actions
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a class=\"use-ajax ctl-btn\" href=\"/\" data-dialog-options='{\"width\":1024, \"height\":758}' data-dialog-type=\"modal\">Edit</a>\r\n<a class=\"use-ajax del-btn\" href=\"/\" data-dialog-options='{\"width\":1024, \"height\":758}' data-dialog-type=\"modal\">Remove</a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: Edit
+          output_url_as_text: false
+          absolute: false
       pager:
         type: mini
         options:
@@ -585,60 +457,19 @@ display:
         options:
           role:
             administrator: administrator
-            farmer: farmer
+            site_admin: site_admin
       cache:
         type: tag
         options: {  }
       empty: {  }
       sorts: {  }
-      arguments:
-        uid:
-          id: uid
-          table: users_field_data
-          field: uid
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          entity_field: uid
-          plugin_id: user_uid
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: current_user
-          default_argument_options: {  }
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            override: false
-            items_per_page: 25
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: true
-          validate:
-            type: 'entity:user'
-            fail: 'not found'
-          validate_options:
-            access: false
-            operation: view
-            multiple: 0
-            restrict_roles: false
-            roles: {  }
-          break_phrase: false
-          not: false
+      arguments: {  }
       filters:
         status:
           id: status
-          table: commerce_product_field_data
+          table: users_field_data
           field: status
-          entity_type: commerce_product
+          entity_type: user
           entity_field: status
           plugin_id: boolean
           value: '1'
@@ -647,17 +478,120 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
+        roles_target_id:
+          id: roles_target_id
+          table: user__roles
+          field: roles_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: roles
+          plugin_id: user_roles
+          operator: or
+          value:
+            consumer: consumer
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
       style:
-        type: grid
+        type: table
         options:
           grouping: {  }
-          columns: 2
-          automatic_width: true
-          alignment: horizontal
-          row_class_custom: ''
-          row_class_default: true
-          col_class_custom: ''
-          col_class_default: true
+          row_class: ''
+          default_row_class: true
+          columns:
+            name: name
+            field_address_address_line1: field_address_address_line1
+            field_address_administrative_area: field_address_administrative_area
+            field_address_country_code: field_address_country_code
+            created: created
+            mail: mail
+            edit_user: edit_user
+          default: created
+          info:
+            name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_address_address_line1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_address_administrative_area:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_address_country_code:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            mail:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            edit_user:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
       row:
         type: fields
       query:
@@ -668,19 +602,7 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships:
-        uid:
-          id: uid
-          table: commerce_product_field_data
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: User
-          entity_type: commerce_product
-          entity_field: uid
-          plugin_id: standard
-          required: false
-      show_admin_links: true
+      relationships: {  }
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -689,14 +611,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
-        - user
         - user.roles
-      tags:
-        - 'config:field.storage.commerce_product.field_category'
-        - 'config:field.storage.commerce_product.field_description'
-        - 'config:field.storage.commerce_product.field_image'
+      tags: {  }
   page_1:
     id: page_1
     display_title: Page
@@ -704,22 +621,21 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: product-catalog
+      path: customers-list-admin
       menu:
         type: normal
-        title: 'Product Catalog'
+        title: 'Customers List'
+        description: ''
+        weight: 0
+        expanded: false
         menu_name: account
         parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
-        - user
         - user.roles
-      tags:
-        - 'config:field.storage.commerce_product.field_category'
-        - 'config:field.storage.commerce_product.field_description'
-        - 'config:field.storage.commerce_product.field_image'
+      tags: {  }
