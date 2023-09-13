@@ -1,0 +1,14 @@
+uuid: 2fb85591-cf3f-43a4-970a-36eb3088acdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.farmer
+  module:
+    - user
+id: user_add_role_action.farmer
+label: 'Add the Farmer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: farmer

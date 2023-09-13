@@ -1,0 +1,9 @@
+uuid: 7342f3d7-e24f-4cab-8204-3eedae029197
+langcode: en
+status: true
+dependencies: {  }
+id: farmer
+label: Farmer
+weight: 4
+is_admin: null
+permissions: {  }
