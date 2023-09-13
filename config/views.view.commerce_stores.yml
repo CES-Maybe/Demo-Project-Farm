@@ -482,6 +482,7 @@ display:
             use_operator: false
             operator: type_op
             operator_limit_selection: false
+            operator_list: {  }
             identifier: type
             required: false
             remember: false
@@ -492,7 +493,6 @@ display:
               administrator: '0'
             reduce: false
             hide_single_bundle: true
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
