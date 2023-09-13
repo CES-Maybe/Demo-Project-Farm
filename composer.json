@@ -20,7 +20,29 @@
         "drupal/core-recommended": "^9.2",
         "pantheon-systems/drupal-integrations": "^9",
         "cweagans/composer-patches": "^1.7",
-        "drush/drush": "^11 || ^12"
+        "drush/drush": "^11 || ^12",
+        "drupal/admin_toolbar": "^3.4",
+        "drupal/bootstrap": "^3.29",
+        "drupal/bootstrap_layouts": "^5.3",
+        "drupal/colorbox": "^1.4",
+        "drupal/commerce": "^2.36",
+        "drupal/commerce_product_limits": "^1.0",
+        "drupal/commerce_stock": "^1.1",
+        "drupal/commerce_stripe_checkout": "^1.2",
+        "drupal/commerce_wishlist": "3.x-dev@dev",
+        "drupal/config_ignore": "^2.4",
+        "drupal/core-project-message": "^9.5",
+        "drupal/ctools": "^3.12",
+        "drupal/devel": "^4.2",
+        "drupal/features": "^3.13",
+        "drupal/font_iconpicker": "^1.0",
+        "drupal/fontawesome": "^2.26",
+        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/page_manager": "^4.0@RC",
+        "drupal/panels": "^4.7",
+        "drupal/quicktabs": "3.x-dev@dev",
+        "drupal/simplenews": "^4.0@alpha",
+        "drupal/views_slideshow": "^4.6"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
@@ -78,7 +100,8 @@
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "drupal/core-project-message": true
         },
         "platform": {
             "php": "8.1"
