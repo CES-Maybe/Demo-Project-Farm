@@ -2,7 +2,7 @@ services:
   maybe.farm:
     class: Drupal\maybe_forms\Services\FarmService
     autowire: true
-    arguments: []
+    arguments: ['@entity_type.manager']
 
   maybe.account:
     class: Drupal\maybe_forms\Services\AccountService

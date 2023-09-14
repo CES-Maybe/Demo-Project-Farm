@@ -37,7 +37,8 @@ class AccountService {
     $user->setEmail($data['mail']);
     $user->setPassword($data['pass']);
     $user->enforceIsNew();
-    $user->set('field_address', $data['address']);
+    $user->set('field_address', $data['field_address']);
+    $user->set('status', $data['status']);
     $user->addRole($role);
     $user->save();
     return $user->id();
@@ -79,6 +80,36 @@ class AccountService {
       \Drupal::logger('maybe_forms')->error('Error loading user: @error', ['@error' => $e->getMessage()]);
       return NULL;
     }
+  }
+
+  /**
+   * Update user information.
+   *
+   * @param int $uid
+   *   The user ID of the user to update.
+   * @param array $user_fields
+   *   An associative array of user fields to update,
+   *   where the keys are field names and the values
+   *   are the new values for those fields.
+   *
+   * @return bool
+   *   TRUE if the update was successful, FALSE otherwise.
+   */
+  public function updateUserInfo($uid, array $user_fields) {
+    try {
+      $user = User::load($uid);
+      if ($user) {
+        foreach ($user_fields as $field_name => $field_value) {
+          $user->set($field_name, $field_value);
+        }
+        $user->save();
+        return TRUE;
+      }
+    }
+    catch (\Exception $e) {
+      \Drupal::logger('maybe_form')->error('Error updating user: @error', ['@error' => $e->getMessage()]);
+    }
+    return FALSE;
   }
 
 }
