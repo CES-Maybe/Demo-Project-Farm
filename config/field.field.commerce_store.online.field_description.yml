@@ -1,0 +1,21 @@
+uuid: d4e5f60d-6108-47e0-98d0-0a184ee9f8e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_store.commerce_store_type.online
+    - field.storage.commerce_store.field_description
+  module:
+    - text
+id: commerce_store.online.field_description
+field_name: field_description
+entity_type: commerce_store
+bundle: online
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

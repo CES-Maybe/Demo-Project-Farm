@@ -1,1 +1,5 @@
-Farmer Homepage Created! The user Id is: {{ uid }}
+{% if isExist == true %}
+	Farmer Homepage Created! The user Id is: {{ store.field_description.value }}
+{% else %}
+{{ message }}
+{% endif %}

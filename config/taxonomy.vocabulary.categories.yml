@@ -1,0 +1,8 @@
+uuid: 1a31ecb4-e649-448e-a292-198899cf7781
+langcode: en
+status: true
+dependencies: {  }
+name: Categories
+vid: categories
+description: 'Contain product types'
+weight: 0
