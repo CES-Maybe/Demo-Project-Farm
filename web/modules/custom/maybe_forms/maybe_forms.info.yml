@@ -1,0 +1,7 @@
+name: Maybe page
+type: module
+description: "Define form for the site."
+package: Maybe
+core_version_requirement: ^9
+version: "1.0.0"
+project: "Maybe"

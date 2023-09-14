@@ -1,0 +1,10 @@
+services:
+  maybe.farm:
+    class: Drupal\maybe_forms\Services\FarmService
+    autowire: true
+    arguments: []
+
+  maybe.account:
+    class: Drupal\maybe_forms\Services\AccountService
+    autowire: true
+    arguments: []

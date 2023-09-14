@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Custom Blocks module.
+ */
+
+const MAYBE_FORMS_FARMER_ROLE = 'farmer';
+const MAYBE_FORMS_CONSUMER_ROLE = 'consumer';
+const MAYBE_FORMS_UNIQUE_ERROR_MESSAGE = "Your email has been used.";
+const MAYBE_FORMS_ERROR_MESSAGE = "An error occurred while creating the farm.";
+const MAYBE_FORMS_STORE_TYPE = "online";
+const MAYBE_FORMS_DEFAULT_PASSWORD = "123456";
+const MAYBE_FORMS_CURRENCY = "USD";
+const MAYBE_FORMS_FARM_CREATED_MESSAGE = "Farm has been created";
