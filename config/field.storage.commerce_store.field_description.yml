@@ -1,19 +1,19 @@
-uuid: 05d3d4f2-3469-4ea4-b40b-05888c70290d
+uuid: 23bae6ff-dd94-4ff0-8679-5e2a23507ee9
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_store
-    - media
-id: commerce_store.field_farm_image
-field_name: field_farm_image
+    - text
+id: commerce_store.field_description
+field_name: field_description
 entity_type: commerce_store
-type: entity_reference
+type: text
 settings:
-  target_type: media
-module: core
+  max_length: 700
+module: text
 locked: false
-cardinality: 10
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

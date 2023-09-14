@@ -5,8 +5,11 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.default
     - field.field.commerce_product.default.body
+    - field.field.commerce_product.default.field_category
+    - field.field.commerce_product.default.field_images
   module:
     - commerce
+    - media_library
     - path
     - text
 _core:
@@ -24,12 +27,26 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_category:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_images:
+    type: media_library_widget
+    weight: 10
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   path:
     type: path

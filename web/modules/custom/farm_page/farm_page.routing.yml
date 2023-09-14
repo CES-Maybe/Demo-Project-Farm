@@ -7,7 +7,7 @@ farm_page.example:
     _permission: 'access content'
 
 farm_page.farm_home_page:
-  path: 'farm/my-farm'
+  path: 'farm/{uid}'
   defaults:
     _title: 'Farm'
     _controller: '\Drupal\farm_page\Controller\FarmPageController::myFarm'

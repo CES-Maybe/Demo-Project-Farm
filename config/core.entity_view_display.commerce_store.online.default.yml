@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - commerce_store.commerce_store_type.online
+    - field.field.commerce_store.online.field_description
     - field.field.commerce_store.online.field_farm_image
   module:
     - address
+    - text
 _core:
   default_config_hash: TXXGt2nhVIkNciw-z_ybNwsIZnsyMLKvqUFjsZFUmwI
 id: commerce_store.online.default
@@ -20,6 +22,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_farm_image:
     type: entity_reference_entity_view

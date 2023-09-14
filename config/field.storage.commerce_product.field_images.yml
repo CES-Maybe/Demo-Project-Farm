@@ -1,13 +1,13 @@
-uuid: 05d3d4f2-3469-4ea4-b40b-05888c70290d
+uuid: ca2d1d1e-9114-4d32-8e89-43adda5f2fc7
 langcode: en
 status: true
 dependencies:
   module:
-    - commerce_store
+    - commerce_product
     - media
-id: commerce_store.field_farm_image
-field_name: field_farm_image
-entity_type: commerce_store
+id: commerce_product.field_images
+field_name: field_images
+entity_type: commerce_product
 type: entity_reference
 settings:
   target_type: media
