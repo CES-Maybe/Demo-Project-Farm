@@ -1,0 +1,5 @@
+services:
+  farm_page.store:
+    class: Drupal\farm_page\Services\FarmPageService
+    autowire: true
+    arguments: []

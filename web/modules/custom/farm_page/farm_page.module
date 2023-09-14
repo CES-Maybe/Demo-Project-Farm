@@ -13,10 +13,11 @@ function farm_page_theme() {
     'farm_homepage' => [
       'template' => 'farm-homepage',
       'variables' => [
-        'uid' => 'Default body text',
         'store' => 'No value',
+        'products' => 'Store has no product',
+        'store_images' => 'No images',
         'message' => '404 not found',
-        'isExist' => FALSE,
+        'is_exist' => FALSE,
       ],
     ],
   ];

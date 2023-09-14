@@ -1,5 +1,8 @@
-{% if isExist == true %}
-	Farmer Homepage Created! The user Id is: {{ store.field_description.value }}
+{% if is_exist == true %}
+{{ store.field_description.value }}
+	{% for image in store_images %}
+	<img src={{image}}>
+	{% endfor %}
 {% else %}
 {{ message }}
 {% endif %}
