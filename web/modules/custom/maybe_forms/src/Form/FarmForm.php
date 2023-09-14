@@ -54,9 +54,9 @@ class FarmForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-          $container->get('maybe.farm'),
-          $container->get('maybe.account')
-      );
+      $container->get('maybe.farm'),
+      $container->get('maybe.account')
+    );
   }
 
   /**
@@ -88,27 +88,35 @@ class FarmForm extends FormBase {
    *   (Optional) An identifier for the form, if needed for customization.
    */
   public function buildForm(array $form, FormStateInterface $form_state, $id = NULL) {
+    if (isset($id) && is_numeric($id) && ($user = $this->accountService->getUserById($id))) {
+      $form_state->set('id', $id);
+      $address = $user->get('field_address')->getValue();
+      $store = $this->farmService->getFarmByOwnerId($id);
+    }
     $form['address'] = [
       '#type' => 'address',
       '#title' => t('Address'),
-      '#default_value' => [
-        'country_code' => 'VN',
-      ],
+      '#default_value' => !empty($address) ? $address[0] : ['country_code' => 'VN'],
     ];
+
     $form['mail'] = [
       '#type' => 'email',
       '#title' => t('Email'),
+      '#default_value' => !empty($user) ? $user->getAccountName() : '',
       '#required' => TRUE,
     ];
+
     $form['name_store'] = [
       '#type' => 'textfield',
       '#title' => t('Farm name'),
+      '#default_value' => !empty($store) ? $store->getName() : '',
       '#required' => TRUE,
     ];
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Register'),
     ];
+
     return $form;
   }
 
@@ -117,7 +125,7 @@ class FarmForm extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $email = $form_state->getValue('mail');
-    if ($this->accountService->checkUserExists($email)) {
+    if ($this->accountService->checkUserExists($email) && !$form_state->get('id')) {
       $form_state->setErrorByName('mail', MAYBE_FORMS_UNIQUE_ERROR_MESSAGE);
     }
   }
@@ -131,18 +139,29 @@ class FarmForm extends FormBase {
       $user = [
         'name' => $values['mail'],
         'pass' => MAYBE_FORMS_DEFAULT_PASSWORD,
-        'address' => $values['address'],
-        'role' => $values['roles'],
+        'field_address' => $values['address'],
+        'status' => TRUE,
       ];
-      $user_id = $this->accountService->createAccount($user, MAYBE_FORMS_FARMER_ROLE);
       $store = [
         'address' => $values['address'],
-        'owner_id' => $user_id,
-        'name_store' => $values['name_store'],
+        'name' => $values['name_store'],
         'mail' => $values['mail'],
       ];
-      $this->farmService->createStore($store);
-      \Drupal::messenger()->addMessage(MAYBE_FORMS_FARM_CREATED_MESSAGE);
+      $user_id = $form_state->get('id');
+      if (!empty($user_id)) {
+
+        if ($this->accountService->updateUserInfo($user_id, $user) && $this->farmService->updateFarmInfo($user_id, $store)) {
+          \Drupal::messenger()->addMessage(MAYBE_FORMS_FARM_UPDATED_MESSAGE);
+        }
+        else {
+          \Drupal::messenger()->addError(MAYBE_FORMS_FARM_UPDATE_ERROR_MESSAGE);
+        }
+      }
+      else {
+        $store['owner_id'] = $this->accountService->createAccount($user, MAYBE_FORMS_FARMER_ROLE);
+        $this->farmService->createStore($store);
+        \Drupal::messenger()->addMessage(MAYBE_FORMS_FARM_CREATED_MESSAGE);
+      }
     }
     catch (EntityStorageException $e) {
       \Drupal::messenger()->addError(MAYBE_FORMS_ERROR_MESSAGE);

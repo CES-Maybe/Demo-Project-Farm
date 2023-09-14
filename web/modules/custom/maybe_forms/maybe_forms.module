@@ -13,3 +13,5 @@ const MAYBE_FORMS_STORE_TYPE = "online";
 const MAYBE_FORMS_DEFAULT_PASSWORD = "123456";
 const MAYBE_FORMS_CURRENCY = "USD";
 const MAYBE_FORMS_FARM_CREATED_MESSAGE = "Farm has been created";
+const MAYBE_FORMS_FARM_UPDATED_MESSAGE = 'Farm information updated successfully.';
+const MAYBE_FORMS_FARM_UPDATE_ERROR_MESSAGE = 'Failed to update farm information.';

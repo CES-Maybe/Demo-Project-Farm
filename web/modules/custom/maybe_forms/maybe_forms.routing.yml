@@ -4,11 +4,11 @@ maybe_forms.farm_create:
     _title: "Farm"
     _form: '\Drupal\maybe_forms\Form\FarmForm'
   requirements:
-    _permission: "access farm form"
+    _permission: "Access create farm form"
 maybe_forms.farm_edit:
-  path: "/farm/{id}"
+  path: "/farm/edit/{id}"
   defaults:
     _title: "Farm"
     _form: '\Drupal\maybe_forms\Form\FarmForm'
   requirements:
-    _permission: "access farm form"
+    _permission: "Access edit farm form"
