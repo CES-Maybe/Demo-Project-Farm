@@ -37,7 +37,7 @@ display:
           entity_type: commerce_store
           entity_field: name
           plugin_id: field
-          label: Name
+          label: Farm
           exclude: false
           alter:
             alter_text: false

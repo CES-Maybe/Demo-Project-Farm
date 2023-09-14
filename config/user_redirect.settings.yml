@@ -1,0 +1,38 @@
+login:
+  authenticated:
+    redirect_url: ''
+    weight: '-10'
+  content_editor:
+    redirect_url: ''
+    weight: '-10'
+  administrator:
+    redirect_url: ''
+    weight: '-10'
+  farmer:
+    redirect_url: /
+    weight: '-10'
+  customer:
+    redirect_url: ''
+    weight: '-10'
+  site_admin:
+    redirect_url: ''
+    weight: '-10'
+logout:
+  authenticated:
+    redirect_url: ''
+    weight: '-10'
+  content_editor:
+    redirect_url: ''
+    weight: '-10'
+  administrator:
+    redirect_url: ''
+    weight: '-10'
+  farmer:
+    redirect_url: ''
+    weight: '-10'
+  customer:
+    redirect_url: ''
+    weight: '-10'
+  site_admin:
+    redirect_url: ''
+    weight: '-10'

@@ -29,6 +29,7 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
+  farm_page: 0
   field: 0
   field_ui: 0
   file: 0
@@ -60,6 +61,7 @@ module:
   tour: 0
   update: 0
   user: 0
+  user_redirect: 0
   views_ui: 0
   views: 10
   standard: 1000
