@@ -4,3 +4,17 @@
  * @file
  * Primary module hooks for Farm Page module.
  */
+
+/**
+ * For myFarm function work correctly.
+ */
+function farm_page_theme() {
+  return [
+    'farm_homepage' => [
+      'template' => 'farm-homepage',
+      'variables' => [
+        'uid' => 'Default body text',
+      ],
+    ],
+  ];
+}

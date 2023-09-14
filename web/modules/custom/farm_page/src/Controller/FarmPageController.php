@@ -22,4 +22,22 @@ class FarmPageController extends ControllerBase {
     return $build;
   }
 
+  /**
+   * Build the farm homepage for farmer.
+   *
+   * @return mixed
+   *   Return Farmer and Farm information according to current user Id
+   */
+  public function myFarm() {
+
+    $uid = \Drupal::currentUser()->id();
+    return [
+      '#theme' => 'farm_homepage',
+      "#uid" => $uid,
+      '#attached' => [
+        'library' => [],
+      ],
+    ];
+  }
+
 }
