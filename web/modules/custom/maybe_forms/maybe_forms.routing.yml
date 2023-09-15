@@ -12,3 +12,10 @@ maybe_forms.farm_edit:
     _form: '\Drupal\maybe_forms\Form\FarmForm'
   requirements:
     _permission: "Access edit farm form"
+maybe_forms.customer_create:
+  path: "/customer"
+  defaults:
+    _title: "Farm"
+    _form: '\Drupal\maybe_forms\Form\CustomerForm'
+  requirements:
+    _permission: "Access create customer form"
