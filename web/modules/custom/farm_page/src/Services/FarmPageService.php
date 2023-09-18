@@ -57,10 +57,10 @@ class FarmPageService {
    * @param int $store_id
    *   Store id from function getStoreIdByUserId.
    *
-   * @return feature_products_id
-   *   Return array of feature products id to display on UI
+   * @return featured_products_id
+   *   Return array of featured products id to display on UI
    */
-  public function getFeatureProducts($store_id) {
+  public function getFeaturedProducts($store_id) {
     $database = \Drupal::database();
     $query = $database->select('commerce_product', 'cp');
     $query->addField('cp', 'product_id', 'pid');
@@ -70,12 +70,12 @@ class FarmPageService {
     $query->condition('fif.field_isfeature_value', 1, '=');
     $query->condition('cs.store_id', $store_id, '=');
     $results = $query->execute()->fetchAll();
-    $feature_products_id = [];
+    $featured_products_id = [];
     foreach ($results as $product) {
-      $featureProduct = Product::load($product->pid);
-      array_push($feature_products_id, $featureProduct);
+      $featuredProduct = Product::load($product->pid);
+      array_push($featured_products_id, $featuredProduct);
     }
-    return $feature_products_id;
+    return $featured_products_id;
   }
 
   /**
@@ -111,41 +111,76 @@ class FarmPageService {
   public function getProductsInfomation($products) {
     $products_list = [];
     foreach ($products as $product) {
-      $product_information = [];
+      $product_info = [];
       // Get Id.
       $product_id = $product->get('product_id')->getValue();
-      $product_information['product_id'] = $product_id[0]['value'];
+      $product_info['product_id'] = $product_id[0]['value'];
       // Get Names.
       $product_name = $product->get('title')->getValue();
-      $product_information['product_name'] = $product_name[0]['value'];
+      $product_info['product_name'] = $product_name[0]['value'];
       // Get Images.
       $product_images_field = $product->get('field_images')->getValue();
       $product_images_url = $this->getImagesUrlFromArray($product_images_field);
-      $product_information['product_images'] = $product_images_url;
+      $product_info['product_images'] = $product_images_url;
       // Get Created Date.
       $product_created = $product->get('created')->getValue();
-      $product_information['product_created'] = $product_created[0]['value'];
+      $product_info['product_created'] = $product_created[0]['value'];
       // Get Description.
       $product_description = $product->get('body')->getValue();
-      $product_information['description'] = $product_description[0]['value'];
+      $product_info['description'] = $product_description[0]['value'];
       // Get Category.
       $terms = $product->get('field_category')->getValue();
-      $product_information['category'] = $this->getTaxonomyTerm($terms);
+      $product_info['category'] = $this->getTaxonomyTerm($terms);
       // Get Variations.
       $variations = $product->get('variations')->getValue();
       if ($variations != NULL) {
         $product_price_list = [];
+        $product_sku_list = [];
         foreach ($variations as $variation) {
           $product_variation = ProductVariation::load($variation['target_id']);
           $price = $product_variation->get('price')->getValue();
+          $sku = $product_variation->get('sku')->getValue();
           array_push($product_price_list, $price[0]);
-          $product_information['prices'] = $product_price_list;
+          array_push($product_sku_list, $sku[0]);
+          $product_info['price'] = $product_price_list;
+          $product_info['sku_list'] = $product_sku_list;
         }
 
       }
-      array_push($products_list, $product_information);
+      array_push($products_list, $product_info);
     }
     return $products_list;
+  }
+
+  /**
+   * Get products based on store id and categories id .
+   *
+   * @param int $store_id
+   *   Store id from function getStoreIdByUserId.
+   * @param iterable $categories_id
+   *   Categories id from Store.
+   *
+   * @return products
+   *   Return array of products
+   */
+  public function getProductsByCategory($store_id, $categories_id) {
+    $products_by_category = [];
+    foreach ($categories_id as $category_id) {
+      $entity_type_manager = \Drupal::entityTypeManager();
+      $entity_type = 'commerce_product';
+      $query = $entity_type_manager->getStorage($entity_type)->getQuery();
+      $query->condition('type', 'default');
+      $query->condition('field_category', $category_id['target_id']);
+      $query->condition('stores', $store_id);
+      $result = $query->execute();
+      $products = $entity_type_manager->getStorage($entity_type)->loadMultiple($result);
+      $product_info = $this->getProductsInfomation($products);
+      if ($product_info != NULL) {
+        array_push($products_by_category, $product_info);
+      }
+
+    }
+    return $products_by_category;
   }
 
 }

@@ -90,11 +90,21 @@ class FarmPageController extends ControllerBase {
       }
       else {
         $store = Store::load($store_id);
-        $products = $this->farmService->getFeatureProducts((int) $store_id);
-        $tags = $this->farmService->getTaxonomyTerm($store->get('field_tags')->getValue());
-        $store_images_field = $store->get('field_farm_image')->getValue();
-        $store_images_url = $this->farmService->getImagesUrlFromArray($store_images_field);
-        $full_information_products = $this->farmService->getProductsInfomation($products);
+        $featured_products = $this->farmService->getFeaturedProducts((int) $store_id);
+        $tags = NULL;
+        $categories_id = NULL;
+        $store_images_field = NULL;
+        $products_by_category = NULL;
+        $featured_products_info = NULL;
+        if (isset($store)) {
+          $tags = $this->farmService->getTaxonomyTerm($store->get('field_tags')->getValue());
+          $categories_id = $store->get('field_products_by_category')->getValue();
+          $store_images_field = $store->get('field_farm_image')->getValue();
+          $products_by_category = $this->farmService->getProductsByCategory($store_id, $categories_id);
+        }
+        if (isset($featured_products)) {
+          $featured_products_info = $this->farmService->getProductsInfomation($featured_products);
+        }
         $is_exist = TRUE;
         $farm_data = [
           'name' => $store->getName(),
@@ -106,10 +116,9 @@ class FarmPageController extends ControllerBase {
           '#data' => [
             'farm' => $farm_data,
             'is_exist' => $is_exist,
-            'store' => $store,
-            'store_images' => $store_images_url,
             'tags' => $tags,
-            'products' => $full_information_products,
+            'featured_products' => $featured_products_info,
+            'products_by_category' => $products_by_category,
           ],
           '#attached' => [
             'library' => ['farm_page/farm_page'],
