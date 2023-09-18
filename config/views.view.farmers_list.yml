@@ -92,17 +92,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: none
+        uid_1:
+          id: uid_1
+          table: commerce_store_field_data
+          field: uid
+          relationship: reverse__commerce_store__uid
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: name
+          entity_type: commerce_store
+          entity_field: uid
           plugin_id: field
-          label: Name
+          label: Owner
           exclude: false
           alter:
             alter_text: false
@@ -122,8 +122,8 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: false
-            ellipsis: false
+            word_boundary: true
+            ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -143,11 +143,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            link_to_entity: false
-          group_column: value
+            link: false
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
