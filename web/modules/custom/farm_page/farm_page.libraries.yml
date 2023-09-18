@@ -5,6 +5,7 @@ farm_page:
   css:
     component:
       css/farm-page.css: {}
+      css/bootstrap.min.css: {}
   dependencies:
     - core/drupalSettings
     - farm_page/jquery-labelauty

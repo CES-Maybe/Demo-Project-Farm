@@ -34,8 +34,8 @@ class FarmPageController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('farm_page.store'),
-    );
+          $container->get('farm_page.store'),
+      );
   }
 
   /**
@@ -64,10 +64,12 @@ class FarmPageController extends ControllerBase {
       $message = '404 user not found';
       return [
         '#theme' => 'farm_homepage',
-        '#is_exist' => $is_exist,
-        "#message" => $message,
+        '#data' => [
+          'is_exist' => $is_exist,
+          'message' => $message,
+        ],
         '#attached' => [
-          'library' => [],
+          'library' => ['farm_page/farm_page'],
         ],
       ];
     }
@@ -77,18 +79,22 @@ class FarmPageController extends ControllerBase {
         $message = '404 store not found';
         return [
           '#theme' => 'farm_homepage',
-          '#is_exist' => $is_exist,
-          "#message" => $message,
+          '#data' => [
+            'is_exist' => $is_exist,
+            'message' => $message,
+          ],
           '#attached' => [
-            'library' => [],
+            'library' => ['farm_page/farm_page'],
           ],
         ];
       }
       else {
         $store = Store::load($store_id);
-        $products_array = $this->farmService->getFeatureProducts((int) $store_id);
+        $products = $this->farmService->getFeatureProducts((int) $store_id);
+        $tags = $this->farmService->getTaxonomyTerm($store->get('field_tags')->getValue());
         $store_images_field = $store->get('field_farm_image')->getValue();
-        $products = $this->farmService->getProductsInfomation($products_array);
+        $store_images_url = $this->farmService->getImagesUrlFromArray($store_images_field);
+        $full_information_products = $this->farmService->getProductsInfomation($products);
         $is_exist = TRUE;
         $farm_data = [
           'name' => $store->getName(),
@@ -99,9 +105,12 @@ class FarmPageController extends ControllerBase {
           '#theme' => 'farm_homepage',
           '#data' => [
             'farm' => $farm_data,
-            'products' => $products,
+            'is_exist' => $is_exist,
+            'store' => $store,
+            'store_images' => $store_images_url,
+            'tags' => $tags,
+            'products' => $full_information_products,
           ],
-          '#is_exist' => $is_exist,
           '#attached' => [
             'library' => ['farm_page/farm_page'],
           ],

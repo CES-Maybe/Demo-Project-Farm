@@ -2,4 +2,7 @@ name: Farm Page
 type: module
 description: Provides additional functionality for the site.
 package: Custom
+# Libraries.
+libraries:
+  - 'farm_page/farm_page'
 core_version_requirement: ^9 || ^10

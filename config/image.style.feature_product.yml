@@ -1,0 +1,15 @@
+uuid: 7c4594fe-d2b9-42b6-93a7-0de327c5d78b
+langcode: en
+status: true
+dependencies: {  }
+name: feature_product
+label: 'feature product'
+effects:
+  a3a336c0-60b0-4f4f-b7c1-ef6c550ceb7b:
+    uuid: a3a336c0-60b0-4f4f-b7c1-ef6c550ceb7b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 360
+      anchor: center-center

@@ -3,6 +3,7 @@
 namespace Drupal\farm_page\Services;
 
 use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
@@ -16,7 +17,7 @@ class FarmPageService {
    * Get store id based on user id from URL .
    *
    * @param int $uid
-   *   user id from URL.
+   *   User id from URL.
    *
    * @return store_id
    *   Return Store id to access to Store infomation
@@ -30,10 +31,31 @@ class FarmPageService {
   }
 
   /**
+   * Get term by tid .
+   *
+   * @param mixed $terms
+   *   Terms from Objects.
+   *
+   * @return terms_list
+   *   Return a list of term with id and name
+   */
+  public function getTaxonomyTerm($terms) {
+    $terms_list = [];
+    foreach ($terms as $term) {
+      $term_infomation = Term::load($term['target_id']);
+      $terms_item = [];
+      $terms_item['id'] = $term['target_id'];
+      $terms_item['name'] = $term_infomation->getName();
+      array_push($terms_list, $terms_item);
+    }
+    return $terms_list;
+  }
+
+  /**
    * Get feature product based on store id .
    *
    * @param int $store_id
-   *   store id from function getStoreIdByUserId.
+   *   Store id from function getStoreIdByUserId.
    *
    * @return feature_products_id
    *   Return array of feature products id to display on UI
@@ -60,7 +82,7 @@ class FarmPageService {
    * Get Image URL based on store image field .
    *
    * @param array $store_images_field
-   *   images id from Objects $store_images_field.
+   *   Images id from Objects $store_images_field.
    *
    * @return images_url
    *   Return array of images URL to display on UI
@@ -80,39 +102,50 @@ class FarmPageService {
   /**
    * Create an array of product to display on UI .
    *
-   * @param array $products_array
+   * @param array $products
    *   An product array.
    *
-   * @return products
+   * @return products_list
    *   Return array of product to display on UI
    */
-  public function getProductsInfomation($products_array) {
-    $products = [];
-    foreach ($products_array as $product_in_array) {
-      $product = [];
+  public function getProductsInfomation($products) {
+    $products_list = [];
+    foreach ($products as $product) {
+      $product_information = [];
       // Get Id.
-      $product_id = $product_in_array->get('product_id')->getValue();
-      $product['product_id'] = $product_id[0]['value'];
+      $product_id = $product->get('product_id')->getValue();
+      $product_information['product_id'] = $product_id[0]['value'];
       // Get Names.
-      $product_name = $product_in_array->get('title')->getValue();
-      $product['product_name'] = $product_name[0]['value'];
+      $product_name = $product->get('title')->getValue();
+      $product_information['product_name'] = $product_name[0]['value'];
       // Get Images.
-      $product_images_field = $product_in_array->get('field_images')->getValue();
+      $product_images_field = $product->get('field_images')->getValue();
       $product_images_url = $this->getImagesUrlFromArray($product_images_field);
-      $product['product_images'] = $product_images_url;
+      $product_information['product_images'] = $product_images_url;
       // Get Created Date.
-      $product_created = $product_in_array->get('created')->getValue();
-      $product['product_created'] = $product_created[0]['value'];
+      $product_created = $product->get('created')->getValue();
+      $product_information['product_created'] = $product_created[0]['value'];
       // Get Description.
-      $product_description = $product_in_array->get('body')->getValue();
-      $product['product_description'] = $product_description[0]['value'];
+      $product_description = $product->get('body')->getValue();
+      $product_information['description'] = $product_description[0]['value'];
       // Get Category.
-      $product_category_id = $product_in_array->get('field_category')->getValue();
-      $product_category_name = Term::load($product_category_id[0]['target_id']);
-      $product['product_category'] = $product_category_name->getName();
-      array_push($products, $product);
+      $terms = $product->get('field_category')->getValue();
+      $product_information['category'] = $this->getTaxonomyTerm($terms);
+      // Get Variations.
+      $variations = $product->get('variations')->getValue();
+      if ($variations != NULL) {
+        $product_price_list = [];
+        foreach ($variations as $variation) {
+          $product_variation = ProductVariation::load($variation['target_id']);
+          $price = $product_variation->get('price')->getValue();
+          array_push($product_price_list, $price[0]);
+          $product_information['prices'] = $product_price_list;
+        }
+
+      }
+      array_push($products_list, $product_information);
     }
-    return $products;
+    return $products_list;
   }
 
 }
