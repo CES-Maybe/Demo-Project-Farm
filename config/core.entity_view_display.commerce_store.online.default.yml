@@ -6,6 +6,9 @@ dependencies:
     - commerce_store.commerce_store_type.online
     - field.field.commerce_store.online.field_description
     - field.field.commerce_store.online.field_farm_image
+    - field.field.commerce_store.online.field_products_by_category
+    - field.field.commerce_store.online.field_store_phone
+    - field.field.commerce_store.online.field_tags
   module:
     - address
     - text
@@ -38,6 +41,29 @@ content:
       link: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_products_by_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_store_phone:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
     region: content
 hidden:
   billing_countries: true

@@ -1,0 +1,20 @@
+uuid: 16a05e45-4643-4ff7-ba4a-1312a3cf27ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_store
+    - taxonomy
+id: commerce_store.field_tags
+field_name: field_tags
+entity_type: commerce_store
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

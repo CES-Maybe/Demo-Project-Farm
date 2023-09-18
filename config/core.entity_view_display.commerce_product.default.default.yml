@@ -8,6 +8,7 @@ dependencies:
     - field.field.commerce_product.default.field_category
     - field.field.commerce_product.default.field_images
     - field.field.commerce_product.default.field_isfeature
+    - field.field.commerce_product.default.field_tags
   module:
     - commerce_product
     - text
@@ -51,6 +52,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
     region: content
   title:
     type: string

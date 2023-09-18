@@ -20,7 +20,8 @@ config/
 
 # Compiled files in the theme.
 web/themes/custom/*/css/*
-
+web/modules/custom/farm_page/css/bootstrap.min.css
+web/modules/custom/farm_page/css/effect.css
 # PHP files.
 **/*.php
 **/*.module

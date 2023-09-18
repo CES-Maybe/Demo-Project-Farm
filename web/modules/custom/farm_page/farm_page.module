@@ -14,11 +14,6 @@ function farm_page_theme() {
       'template' => 'farm-homepage',
       'variables' => [
         'data' => [],
-        'store' => 'No value',
-        'products' => 'Store has no product',
-        'store_images' => 'No images',
-        'message' => '404 not found',
-        'is_exist' => FALSE,
       ],
     ],
   ];
