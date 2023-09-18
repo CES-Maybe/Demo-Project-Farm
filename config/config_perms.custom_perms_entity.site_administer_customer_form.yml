@@ -1,0 +1,7 @@
+uuid: 0561b39a-f9a2-4983-a8b7-8832c940131e
+langcode: en
+status: true
+dependencies: {  }
+id: site_administer_customer_form
+label: 'Site Administer Customer Form Create'
+route: maybe_forms.customer_create

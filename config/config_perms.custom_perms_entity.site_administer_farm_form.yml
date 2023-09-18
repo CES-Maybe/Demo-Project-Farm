@@ -1,0 +1,7 @@
+uuid: e481046c-4218-40d8-8d63-2ee69ed42220
+langcode: en
+status: true
+dependencies: {  }
+id: site_administer_farm_form
+label: 'Site Administer Farm Form'
+route: maybe_forms.farm_create

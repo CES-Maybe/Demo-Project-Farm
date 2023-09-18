@@ -1,9 +1,27 @@
 uuid: d92c08c1-3852-4232-8187-1ad714c72183
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - commerce_store
+    - config_perms
 id: site_admin
 label: 'Site Admin'
 weight: 6
 is_admin: null
-permissions: {  }
+permissions:
+  - 'Site Administer Customer Form'
+  - 'Site Administer Customer Form Create'
+  - 'Site Administer Farm Form'
+  - 'Site Administer Farm Form Edit'
+  - 'access commerce_store overview'
+  - 'administer users'
+  - 'create online commerce_store'
+  - 'delete any online commerce_store'
+  - 'delete own online commerce_store'
+  - 'duplicate any online commerce_store'
+  - 'duplicate own online commerce_store'
+  - 'update any online commerce_store'
+  - 'update own online commerce_store'
+  - 'view commerce_store'
+  - 'view online commerce_store'
