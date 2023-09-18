@@ -43,16 +43,16 @@
   color: #808d7b;
 }
 
-.feature-images {
+.featured-images {
   object-fit: cover;
-  min-height: 250px;
+  height: 250px;
 }
 
-.feature-items-link {
+.featured-items-link {
   text-decoration: none;
 }
 
-.feature-items:hover {
+.featured-items:hover {
   border-color: black;
 }
 
