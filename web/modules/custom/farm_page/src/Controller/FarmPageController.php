@@ -17,16 +17,16 @@ class FarmPageController extends ControllerBase {
    *
    * @var \Drupal\farm_page\Services\FarmPageService
    */
-  protected $farmPageService;
+  protected $farmService;
 
   /**
    * Constructs a new instance of the FarmPageService class.
    *
-   * @param \Drupal\farm_page\Services\FarmPageService $farmPageService
+   * @param \Drupal\farm_page\Services\FarmPageService $farmService
    *   to use method from FarmPageService.
    */
-  public function __construct(FarmPageService $farmPageService) {
-    $this->farmPageService = $farmPageService;
+  public function __construct(FarmPageService $farmService) {
+    $this->farmService = $farmService;
   }
 
   /**
@@ -34,8 +34,8 @@ class FarmPageController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-          $container->get('farm_page.store'),
-      );
+      $container->get('farm_page.store'),
+    );
   }
 
   /**
@@ -72,7 +72,7 @@ class FarmPageController extends ControllerBase {
       ];
     }
     elseif ($user) {
-      $store_id = $this->farmPageService->getStoreIdByUserId($uid);
+      $store_id = $this->farmService->getStoreIdByUserId($uid);
       if ($store_id == NULL) {
         $message = '404 store not found';
         return [
@@ -86,19 +86,24 @@ class FarmPageController extends ControllerBase {
       }
       else {
         $store = Store::load($store_id);
-        $products_array = $this->farmPageService->getFeatureProducts((int) $store_id);
+        $products_array = $this->farmService->getFeatureProducts((int) $store_id);
         $store_images_field = $store->get('field_farm_image')->getValue();
-        $store_images_url = $this->farmPageService->getImagesUrlFromArray($store_images_field);
-        $products = $this->farmPageService->getProductsInfomation($products_array);
+        $products = $this->farmService->getProductsInfomation($products_array);
         $is_exist = TRUE;
+        $farm_data = [
+          'name' => $store->getName(),
+          'description' => $store->get('field_description')->getValue()[0]['value'],
+          'farm_images' => reset($this->farmService->getImagesUrlFromArray($store_images_field)),
+        ];
         return [
           '#theme' => 'farm_homepage',
+          '#data' => [
+            'farm' => $farm_data,
+            'products' => $products,
+          ],
           '#is_exist' => $is_exist,
-          '#store' => $store,
-          '#store_images' => $store_images_url,
-          '#products' => $products,
           '#attached' => [
-            'library' => [],
+            'library' => ['farm_page/farm_page'],
           ],
         ];
       }
