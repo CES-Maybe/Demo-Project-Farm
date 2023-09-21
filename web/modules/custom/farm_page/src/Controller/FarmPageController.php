@@ -34,8 +34,8 @@ class FarmPageController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-          $container->get('farm_page.store'),
-      );
+      $container->get('farm_page.store'),
+    );
   }
 
   /**
@@ -126,6 +126,25 @@ class FarmPageController extends ControllerBase {
         ];
       }
     }
+  }
+
+  /**
+   * Build list farm.
+   *
+   * @return mixed
+   *   Return Farmr and Farm information
+   */
+  public function listFarm() {
+    $stores = $this->farmService->getAllStores();
+    return [
+      '#theme' => 'list_farm',
+      '#data' => [
+        'stores' => $stores,
+      ],
+      '#attached' => [
+        'library' => ['farm_page/list-farm'],
+      ],
+    ];
   }
 
 }

@@ -13,4 +13,11 @@ farm_page.farm_home_page:
     _controller: '\Drupal\farm_page\Controller\FarmPageController::myFarm'
   requirements:
     _permission: 'access content'
+farm_page.list_farm:
+  path: 'farms'
+  defaults:
+    _title: 'Farm List'
+    _controller: '\Drupal\farm_page\Controller\FarmPageController::listFarm'
+  requirements:
+    _permission: 'access content'
 

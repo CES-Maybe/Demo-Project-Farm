@@ -1,19 +1,20 @@
-uuid: 63460789-43b1-4b80-9759-bc405859bae3
+uuid: f44e6c59-9a98-4d96-974f-38f2c4e4f69c
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_store
-    - taxonomy
-id: commerce_store.field_products_by_category
-field_name: field_products_by_category
+id: commerce_store.field_headline
+field_name: field_headline
 entity_type: commerce_store
-type: entity_reference
+type: string
 settings:
-  target_type: taxonomy_term
+  max_length: 30
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
-cardinality: 3
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

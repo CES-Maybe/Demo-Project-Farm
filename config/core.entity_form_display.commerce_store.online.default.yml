@@ -6,6 +6,7 @@ dependencies:
     - commerce_store.commerce_store_type.online
     - field.field.commerce_store.online.field_description
     - field.field.commerce_store.online.field_farm_image
+    - field.field.commerce_store.online.field_headline
     - field.field.commerce_store.online.field_products_by_category
     - field.field.commerce_store.online.field_store_phone
     - field.field.commerce_store.online.field_tags
@@ -54,6 +55,14 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_headline:
+    type: string_textfield
+    weight: 17
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_products_by_category:
     type: options_buttons
