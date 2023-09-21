@@ -4,6 +4,7 @@ namespace Drupal\farm_page\Services;
 
 use Drupal\commerce_product\Entity\Product;
 use Drupal\commerce_product\Entity\ProductVariation;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
@@ -12,6 +13,23 @@ use Drupal\taxonomy\Entity\Term;
  * Logic handler.
  */
 class FarmPageService {
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * Constructor for YourServiceClass.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager.
+   */
+  public function __construct(EntityTypeManagerInterface $entityTypeManager) {
+    $this->entityTypeManager = $entityTypeManager;
+  }
 
   /**
    * Get store id based on user id from URL .
@@ -145,7 +163,6 @@ class FarmPageService {
           $product_info['price'] = $product_price_list;
           $product_info['sku_list'] = $product_sku_list;
         }
-
       }
       array_push($products_list, $product_info);
     }
@@ -178,9 +195,81 @@ class FarmPageService {
       if ($product_info != NULL) {
         array_push($products_by_category, $product_info);
       }
-
     }
     return $products_by_category;
+  }
+
+  /**
+   * Get all stores.
+   *
+   * @return \Drupal\commerce_store\Entity\StoreInterface[]
+   *   An array of store entities.
+   */
+  public function getAllStores() {
+    $storeStorage = $this->entityTypeManager->getStorage('commerce_store');
+    $stores = [];
+    foreach ($storeStorage->loadMultiple() as $store) {
+      $storeData = $this->getStoreData($store);
+      $stores[] = $storeData;
+    }
+    return $stores;
+  }
+
+  /**
+   * Retrieves data for a Drupal Commerce store entity.
+   *
+   * This method extracts and organizes relevant information from a store entity
+   * to create a data array containing the store's name, image URL, headline,
+   * and owner's user ID.
+   *
+   * @param \Drupal\commerce_store\Entity\StoreInterface $store
+   *   The Drupal Commerce store entity for which to retrieve data.
+   *
+   * @return array
+   *   An associative array containing the following keys:
+   *   - 'name': The name of the store.
+   *   - 'image': The URL of the store's image (if available).
+   *   - 'headline': The headline associated with the store.
+   *   - 'owner_id': The user ID of the store's owner.
+   */
+  private function getStoreData($store) {
+    $storeData = [
+      'name' => $store->getName(),
+      'image' => $this->getStoreImageUrl($store),
+      'headline' => $store->get('field_headline')->first()->getValue()['value'],
+      'owner_id' => $store->getOwner()->id(),
+    ];
+    return $storeData;
+  }
+
+  /**
+   * Retrieves the URL of the image associated with a Drupal Commerce store.
+   *
+   * This method fetches the URL of the image associated with a store entity,
+   * provided that the store has an associated image. If no image is found or if
+   * any required entities are missing, it returns null.
+   *
+   * @param \Drupal\commerce_store\Entity\StoreInterface $store
+   *   The Drupal Commerce store entity for which to retrieve the image URL.
+   *
+   * @return string|null
+   *   The URL of the store's image if available, or null if no image is found
+   *   or if any required entities are missing.
+   */
+  private function getStoreImageUrl($store) {
+    $imageField = $store->get('field_farm_image')->first();
+    if (!$imageField) {
+      return NULL;
+    }
+    $media = Media::load($imageField->target_id);
+    if (!$media) {
+      return NULL;
+    }
+    $file = File::load($media->getSource()->getSourceFieldValue($media));
+    if (!$file) {
+      return NULL;
+    }
+    return $file->createFileUrl();
   }
 
 }

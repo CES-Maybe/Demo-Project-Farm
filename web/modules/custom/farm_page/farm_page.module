@@ -16,5 +16,11 @@ function farm_page_theme() {
         'data' => [],
       ],
     ],
+    'list_farm' => [
+      'template' => 'list-farm',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
   ];
 }

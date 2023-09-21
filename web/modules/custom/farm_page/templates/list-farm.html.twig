@@ -1,0 +1,59 @@
+<div class='list-farm-page'>
+  <div class="welcome">
+    <h3>
+      VISIT OUR FARMS!
+    </h3>
+  </div>
+  <div class='custom-search'>
+    <div class="search-farm">
+      <div class="search-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <input type="text" class="search-input" placeholder="Search..."></div>
+  </div>
+  <div class="farms">
+    <div class="farm-list">
+      {% for store in data.stores %}
+        <a href={{"/farm/" ~ store.owner_id}}>
+          <div class="farm-item">
+
+            <img src={{store.image}} alt="Farm Image" class="farm-image">
+            <p class="farm-headline">
+              {{store.headline}}
+
+            </p>
+            <p class="farm-name">
+              {{store.name}}
+
+            </p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="about-us">
+    <img src='/modules/custom/farm_page/assets/images/about_us.png' alt="Farm Image">
+    <p class="title">
+      ABOUT US
+    </p>
+    <p class="description">
+      Booklets are printed materials with four or more pages, 
+      containing details about a business, event, product, promotion. 
+      They are also known as catalogs or pamphlets, and are usually created
+    </p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fa fa-link"></i>
+        <span class="value">Happyfarmars.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fa fa-phone"></i>
+        <span class="value">+123-456-789</span>
+      </div>
+      <div class="contact-item">
+        <i class="fa fa-envelope"></i>
+        <span class="value">hello@happyfarmers.com</span>
+      </div>
+    </div>
+  </div>
+</div>

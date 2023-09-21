@@ -9,7 +9,12 @@ farm_page:
   dependencies:
     - core/drupalSettings
     - farm_page/jquery-labelauty
-
+list-farm:
+  css:
+    theme:
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {}
+    component:
+      css/list-farm.css: {}
 # Third-party library (self hosted).
 jquery-labelauty:
   remote: https://github.com/fntneves/jquery-labelauty
