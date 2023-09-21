@@ -48,18 +48,23 @@
       <div class='products-title'>
         <p>Shop Our Products</p>
       </div>
-      <p class='category-name'>Ready-made</p>
-      <div class="product-list">
-        {% for i in 1..3 %}
-          <div class="product-item">
-            <img src='/modules/custom/farm_page/templates/tets1.png' alt="Farm Image" class="product-image">
-            <p class="product-id">PRODUCT CODE #123ABC</p>
-            <p class="product-name">test</p>
-            <p class="product-description">This sets the maximum height for the paragraph container to accommodate two lines of text.</p>
-            <p class="product-price">$7</p>
+      {% for items in data.products_by_category %}
+        <div class="row mb-5">
+          <p class='category-name'>{{ items[0].category[0].name }}</p>
+          <div class="product-list">
+            {% for product in items %}
+              <div class="product-item">
+                <img src={{ product.product_images[0] }} alt="Farm Image" class="product-image">
+                <p class="product-id">PRODUCT CODE
+                  {{ product.sku_list[0]['value'] }}</p>
+                <p class="product-name">{{ product.product_name }}</p>
+                <p class="product-description">{{ product.description|raw }}</p>
+                <p class="product-price">${{ product.price[0]['number']|round }}</p>
+              </div>
+            {% endfor %}
           </div>
-        {% endfor %}
-      </div>
+        </div>
+      {% endfor %}
       <div class="view-all">
         <button>View all</button>
       </div>
