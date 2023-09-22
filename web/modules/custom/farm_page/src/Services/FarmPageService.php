@@ -6,6 +6,7 @@ use Drupal\commerce_product\Entity\Product;
 use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
 
@@ -138,7 +139,18 @@ class FarmPageService {
       $product_info['product_name'] = $product_name[0]['value'];
       // Get Images.
       $product_images_field = $product->get('field_images')->getValue();
-      $product_images_url = $this->getImagesUrlFromArray($product_images_field);
+      // Check If Featured Product.
+      $product_is_featured = NULL;
+      if (!empty($product->get('field_isfeature')->getValue())) {
+        $product_is_featured = $product->get('field_isfeature')->getValue()[0]['value'];
+      }
+      if ($product_is_featured == 1) {
+        $style = 'featured_product';
+        $product_images_url = $this->getImagesUrlWithStyle($product_images_field, $style);
+      }
+      else {
+        $product_images_url = $this->getImagesUrlFromArray($product_images_field);
+      }
       $product_info['product_images'] = $product_images_url;
       // Get Created Date.
       $product_created = $product->get('created')->getValue();
@@ -315,6 +327,32 @@ class FarmPageService {
         ->loadTree($vocabulary_machine_name);
     }
     return $terms;
+  }
+
+  /**
+   * Get Image URL with image_style: featured_product applied .
+   *
+   * @param array $store_images_field
+   *   Images id from Objects $store_images_field.
+   * @param string $style
+   *   Image style machine name in configuration.
+   *
+   * @return images_url
+   *   Return array of images URL with image_style: featured_product
+   */
+  public function getImagesUrlWithStyle($store_images_field, $style) {
+    $images_url = [];
+    foreach ($store_images_field as $image) {
+      $media = Media::load($image['target_id']);
+      $fid = $media->getSource()->getSourceFieldValue($media);
+      $file = File::load($fid);
+      // Get origin image URI.
+      $image_uri = $file->getFileUri();
+      $style_image = ImageStyle::load($style);
+      $url = $style_image->buildUrl($image_uri);
+      array_push($images_url, $url);
+    }
+    return $images_url;
   }
 
 }

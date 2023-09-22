@@ -12,7 +12,134 @@ dependencies:
     - field.field.commerce_store.online.field_tags
   module:
     - address
+    - field_layout
+    - layout_builder
+    - layout_discovery
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  layout_builder:
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          71ae7c6a-346f-40d4-a355-827282b602d6:
+            uuid: 71ae7c6a-346f-40d4-a355-827282b602d6
+            region: content
+            configuration:
+              id: 'field_block:commerce_store:online:address'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: address_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          e533cb07-78ee-4e0d-a95c-6fa2a7f1c10f:
+            uuid: e533cb07-78ee-4e0d-a95c-6fa2a7f1c10f
+            region: content
+            configuration:
+              id: 'field_block:commerce_store:online:field_farm_image'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          d5e58033-f578-4d0e-946a-24f532f9cea0:
+            uuid: d5e58033-f578-4d0e-946a-24f532f9cea0
+            region: content
+            configuration:
+              id: 'field_block:commerce_store:online:field_description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          bbfb544a-e934-4fcd-8bd7-010c9552758d:
+            uuid: bbfb544a-e934-4fcd-8bd7-010c9552758d
+            region: content
+            configuration:
+              id: 'field_block:commerce_store:online:field_store_phone'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          ed46b393-8c3e-4508-8a21-a7296284a88f:
+            uuid: ed46b393-8c3e-4508-8a21-a7296284a88f
+            region: content
+            configuration:
+              id: 'field_block:commerce_store:online:field_products_by_category'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          df0be1c0-ecb1-46f7-8da8-f91461710aa6:
+            uuid: df0be1c0-ecb1-46f7-8da8-f91461710aa6
+            region: content
+            configuration:
+              id: 'field_block:commerce_store:online:field_tags'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          c825a446-de84-41c4-956c-b6a1ae9458f7:
+            uuid: c825a446-de84-41c4-956c-b6a1ae9458f7
+            region: content
+            configuration:
+              id: 'field_block:commerce_store:online:field_headline'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+        third_party_settings: {  }
 _core:
   default_config_hash: TXXGt2nhVIkNciw-z_ybNwsIZnsyMLKvqUFjsZFUmwI
 id: commerce_store.online.default

@@ -5,12 +5,63 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - core.entity_view_mode.commerce_product_variation.cart
+    - field.field.commerce_product_variation.default.attribute_unit
   module:
     - commerce_price
+    - field_layout
+    - layout_builder
+    - layout_discovery
   enforced:
     module:
       - commerce_cart
       - commerce_product
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  layout_builder:
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          5d42b357-ffd8-4c3d-ae72-ae4310c07bd8:
+            uuid: 5d42b357-ffd8-4c3d-ae72-ae4310c07bd8
+            region: content
+            configuration:
+              id: 'field_block:commerce_product_variation:default:list_price'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: commerce_price_default
+                label: above
+                settings:
+                  strip_trailing_zeroes: false
+                  currency_display: symbol
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          0e130a97-afc3-4372-9584-7580d8545b9d:
+            uuid: 0e130a97-afc3-4372-9584-7580d8545b9d
+            region: content
+            configuration:
+              id: 'field_block:commerce_product_variation:default:product_id'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
 _core:
   default_config_hash: 6GpSQzJM6086KplhyiaTF3ezvQ_ecs8bIcW4GQMzrJU
 id: commerce_product_variation.default.cart
@@ -36,6 +87,7 @@ content:
     weight: 0
     region: content
 hidden:
+  attribute_unit: true
   price: true
   sku: true
   title: true

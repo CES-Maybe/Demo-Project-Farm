@@ -5,11 +5,78 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - core.entity_view_mode.commerce_product_variation.summary
+    - field.field.commerce_product_variation.default.attribute_unit
   module:
     - commerce_price
+    - field_layout
+    - layout_builder
+    - layout_discovery
   enforced:
     module:
-      - commerce_checkout
+      - commerce_checkoutommerce_product_variation.default.summary.yml
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  layout_builder:
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          0904b858-0896-49aa-b36a-a5f7b75750b1:
+            uuid: 0904b858-0896-49aa-b36a-a5f7b75750b1
+            region: content
+            configuration:
+              id: 'field_block:commerce_product_variation:default:title'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          abcbc329-27f2-4211-a7f1-b8c3efcf2ebd:
+            uuid: abcbc329-27f2-4211-a7f1-b8c3efcf2ebd
+            region: content
+            configuration:
+              id: 'field_block:commerce_product_variation:default:list_price'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: commerce_price_default
+                label: above
+                settings:
+                  strip_trailing_zeroes: false
+                  currency_display: symbol
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          aaeb1468-bf5a-4cba-b56d-653316852763:
+            uuid: aaeb1468-bf5a-4cba-b56d-653316852763
+            region: content
+            configuration:
+              id: 'field_block:commerce_product_variation:default:product_id'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
 _core:
   default_config_hash: jmDRQILFIWJUS3jS-qLF10aGc1IXnvFEBizwJl94FfU
 id: commerce_product_variation.default.summary
@@ -18,30 +85,31 @@ bundle: default
 mode: summary
 content:
   list_price:
-    label: above
     type: commerce_price_default
-    weight: -1
-    region: content
+    label: above
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
+    weight: -1
+    region: content
   product_id:
     type: entity_reference_label
-    weight: 0
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
+    weight: 0
     region: content
   title:
-    label: hidden
     type: string
-    weight: -5
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: -5
     region: content
 hidden:
+  attribute_unit: true
   price: true
   sku: true
