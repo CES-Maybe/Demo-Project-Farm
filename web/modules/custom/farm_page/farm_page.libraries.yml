@@ -3,6 +3,8 @@ farm_page:
   js:
     js/farm-page.js: {}
   css:
+    theme:
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {}
     component:
       css/farm-page.css: {}
       css/bootstrap.min.css: {}
