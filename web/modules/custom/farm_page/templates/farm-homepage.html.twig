@@ -58,7 +58,7 @@
                 <p class="product-id">PRODUCT CODE
                   {{ product.sku_list[0]['value'] }}</p>
                 <p class="product-name">{{ product.product_name }}</p>
-                <p class="product-description">{{ product.description|raw }}</p>
+                <p class="product-description">{{ product.description|striptags }}</p>
                 <p class="product-price">${{ product.price[0]['number']|round }}</p>
               </div>
             {% endfor %}
