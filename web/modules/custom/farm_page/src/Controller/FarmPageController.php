@@ -106,10 +106,14 @@ class FarmPageController extends ControllerBase {
           $featured_products_info = $this->farmService->getProductsInfomation($featured_products);
         }
         $is_exist = TRUE;
+        $address = $store->get('address')->getValue()[0];
         $farm_data = [
           'name' => $store->getName(),
           'description' => $store->get('field_description')->getValue()[0]['value'],
           'farm_images' => reset($this->farmService->getImagesUrlFromArray($store_images_field)),
+          'phone' => $store->get('field_store_phone')->getValue()[0]['value'],
+          'email' => $store->getEmail(),
+          'address' => $address['address_line1'] . ', ' . $address['administrative_area'] . ', ' . $address['country_code'],
         ];
         return [
           '#theme' => 'farm_homepage',

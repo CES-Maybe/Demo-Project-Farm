@@ -69,7 +69,23 @@
         <button>View all</button>
       </div>
     </div>
-  </div>
-{% else %}
-  {{ message }}
-{% endif %}
+    <div class="contact">
+      <h2>MEET OUR FARM</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fa fa-phone"></i>
+          <span class="value">{{data.farm.phone}}</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa fa-envelope"></i>
+          <span class="value">{{data.farm.email}}</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa fa-map-marker"></i>
+          <span class="value">{{data.farm.address}}</span>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    {{ message }}
+  {% endif %}
