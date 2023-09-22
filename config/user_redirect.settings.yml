@@ -9,10 +9,10 @@ login:
     redirect_url: ''
     weight: '-10'
   farmer:
-    redirect_url: /farm/my-farm
+    redirect_url: ''
     weight: '-10'
   customer:
-    redirect_url: ''
+    redirect_url: /farms
     weight: '-10'
   site_admin:
     redirect_url: ''

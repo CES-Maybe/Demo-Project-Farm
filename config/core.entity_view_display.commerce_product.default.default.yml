@@ -9,9 +9,21 @@ dependencies:
     - field.field.commerce_product.default.field_images
     - field.field.commerce_product.default.field_isfeature
     - field.field.commerce_product.default.field_tags
+    - field.field.commerce_product.default.layout_builder__layout
   module:
     - commerce_product
+    - field_layout
+    - layout_builder
+    - layout_discovery
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  layout_builder:
+    enabled: false
+    allow_custom: false
 _core:
   default_config_hash: 10qgl6V_HwkrJufzsNCV75OpqOeMzzKDJb3BhaogmzQ
 id: commerce_product.default.default
@@ -24,15 +36,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
-    region: content
-  field_category:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_images:
     type: entity_reference_entity_view
@@ -43,43 +47,27 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_isfeature:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_tags:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
-    region: content
   title:
     type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: -5
+    weight: 0
     region: content
   variations:
     type: commerce_add_to_cart
     label: hidden
     settings:
-      show_quantity: false
-      default_quantity: '1'
       combine: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
   created: true
+  field_category: true
+  field_isfeature: true
+  field_tags: true
+  layout_builder__layout: true
   stores: true
   uid: true

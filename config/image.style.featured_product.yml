@@ -1,0 +1,15 @@
+uuid: 9a9a24a5-b89b-4ca7-b27d-f14c2d4d4b91
+langcode: en
+status: true
+dependencies: {  }
+name: featured_product
+label: 'featured product'
+effects:
+  fca6334a-625c-46d0-a057-15b41f734cf6:
+    uuid: fca6334a-625c-46d0-a057-15b41f734cf6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 260
+      height: 250
+      anchor: center-center

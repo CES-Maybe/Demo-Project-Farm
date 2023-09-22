@@ -9,9 +9,57 @@ dependencies:
   module:
     - address
     - commerce_tax
+    - field_layout
+    - layout_builder
+    - layout_discovery
   enforced:
     module:
       - commerce_order
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  layout_builder:
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          bc388eb7-a1dc-486e-af5d-ae050e9d6864:
+            uuid: bc388eb7-a1dc-486e-af5d-ae050e9d6864
+            region: content
+            configuration:
+              id: 'field_block:profile:customer:address'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: address_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          12836632-9501-4c9d-b4e4-b1a223d1dabd:
+            uuid: 12836632-9501-4c9d-b4e4-b1a223d1dabd
+            region: content
+            configuration:
+              id: 'field_block:profile:customer:tax_number'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: commerce_tax_number_default
+                label: above
+                settings:
+                  show_verification: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
 _core:
   default_config_hash: zA0MBGUGdWqnBBoC762uDcH92qRZHC8KllbkpOjNUcs
 id: profile.customer.default
