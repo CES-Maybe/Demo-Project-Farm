@@ -19,10 +19,20 @@
   border-top-right-radius: 8px;
 }
 
+.product-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.product-item {
+  margin-top: 40px;
+}
+
 .dropdown {
   display: flex;
   justify-content: center;
-  margin: 33px 0;
+  margin-top: 33px;
 }
 
 .filter-wrapper {
