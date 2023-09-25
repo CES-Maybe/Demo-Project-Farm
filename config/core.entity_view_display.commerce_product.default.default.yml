@@ -9,7 +9,6 @@ dependencies:
     - field.field.commerce_product.default.field_images
     - field.field.commerce_product.default.field_isfeature
     - field.field.commerce_product.default.field_tags
-    - field.field.commerce_product.default.layout_builder__layout
   module:
     - commerce_product
     - field_layout
