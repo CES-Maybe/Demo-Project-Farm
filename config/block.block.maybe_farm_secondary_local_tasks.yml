@@ -1,0 +1,22 @@
+uuid: 68d744b3-cc2a-40ab-9c9d-ec717b304df5
+langcode: en
+status: true
+dependencies:
+  theme:
+    - maybe_farm
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: maybe_farm_secondary_local_tasks
+theme: maybe_farm
+region: highlighted
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

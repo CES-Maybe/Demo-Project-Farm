@@ -1,0 +1,96 @@
+:root {
+  --main-color: #fffcf5;
+  --secondary-color: #e8d8c9;
+  --header-color: #d4cdbb;
+}
+
+.intro-farm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.farm-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3cfc4;
+  width: 100%;
+  height: 80px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.main-bg {
+  background-color: var(--main-color);
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+}
+
+.button--add-to-cart {
+  background-color: var(--header-color);
+  border-color: var(--header-color);
+  width: 72%;
+}
+
+input[value='Add to cart'],
+input[value='Out of stock'] {
+  padding-inline-start: 22.8%;
+}
+
+.button--add-to-cart:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--header-color);
+}
+
+.form-select {
+  width: 72%;
+}
+
+@media (min-width: 600px) {
+  .form-number {
+    width: 72%;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-number {
+    width: 72%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-number {
+    width: 72%;
+  }
+}
+
+@media (min-width: 1280px) {
+  input[value='Add to cart'] {
+    padding-left: 22.8%;
+  }
+}
+
+.thumbnail-img {
+  border: 0.5px solid;
+  border-color: var(--header-color);
+  border-radius: 5px;
+}
+
+.thumbnail-img:hover {
+  border-color: black;
+  cursor: pointer;
+}
+
+.thumbnail-img:focus {
+  border: inset var(--secondary-color);
+}
+
+.back-btn {
+  text-decoration: none;
+  color: black;
+}

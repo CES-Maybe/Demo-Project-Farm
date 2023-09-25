@@ -1,0 +1,22 @@
+uuid: a76200aa-59dd-4805-b9f8-a4061c8f7296
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - maybe_farm
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: maybe_farm_powered
+theme: maybe_farm
+region: footer_bottom
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,6 +1,3 @@
-@import './effect.css';
-@import './farm-page.css';
-
 .farm-product-page {
   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
 }

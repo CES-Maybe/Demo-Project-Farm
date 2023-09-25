@@ -106,14 +106,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uid:
-    type: entity_reference_autocomplete
+    type: options_buttons
     weight: 4
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
 hidden:
   variations: true
