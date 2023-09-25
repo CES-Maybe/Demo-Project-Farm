@@ -1,0 +1,22 @@
+uuid: b32ddf20-1973-489d-8043-df3ab1cc5c3b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - maybe_farm
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: maybe_farm_breadcrumbs
+theme: maybe_farm
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

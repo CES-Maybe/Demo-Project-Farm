@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Maybe Farm theme.
+maybe_farm.settings:
+  type: theme_settings
+  label: 'Maybe Farm settings'
+  mapping:
+    font_size:
+      type: integer
+      label: Font size

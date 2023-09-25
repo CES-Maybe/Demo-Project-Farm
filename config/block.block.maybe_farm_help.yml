@@ -1,0 +1,22 @@
+uuid: 6c160bea-c53e-4a64-844e-d26f1ed62584
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - maybe_farm
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: maybe_farm_help
+theme: maybe_farm
+region: content_above
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

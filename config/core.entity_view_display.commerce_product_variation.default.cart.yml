@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_variation_type.default
     - core.entity_view_mode.commerce_product_variation.cart
     - field.field.commerce_product_variation.default.attribute_unit
+    - field.field.commerce_product_variation.default.field_available_quantity
   module:
     - commerce_price
     - field_layout
@@ -88,6 +89,7 @@ content:
     region: content
 hidden:
   attribute_unit: true
+  field_available_quantity: true
   price: true
   sku: true
   title: true

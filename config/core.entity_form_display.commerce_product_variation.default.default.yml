@@ -5,8 +5,10 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_unit
+    - field.field.commerce_product_variation.default.field_available_quantity
   module:
     - commerce_price
+    - commerce_stock_field
     - field_layout
     - layout_discovery
 third_party_settings:
@@ -33,6 +35,15 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_available_quantity:
+    type: commerce_stock_level_simple_transaction
+    weight: 11
+    region: content
+    settings:
+      step: '1'
+      custom_transaction_note: false
+      default_transaction_note: 'Transaction issued by stock level field.'
     third_party_settings: {  }
   list_price:
     type: commerce_list_price

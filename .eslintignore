@@ -6,5 +6,5 @@ web/modules/contrib/
 # Ignore compiled files.
 *.es6.js
 web/libraries/*
-web/modules/custom/farm_page/css/bootstrap.min.css
+web/themes/custom/maybe_farm/css/bootstrap.min.css
 web/modules/custom/farm_page/css/effect.css

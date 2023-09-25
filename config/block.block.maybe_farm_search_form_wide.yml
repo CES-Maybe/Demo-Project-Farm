@@ -1,0 +1,23 @@
+uuid: d10e367c-d142-4172-9eae-d0e47b7d17ba
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - maybe_farm
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: maybe_farm_search_form_wide
+theme: maybe_farm
+region: secondary_menu
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

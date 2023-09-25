@@ -9,5 +9,5 @@
 # web/modules/custom/module_name/*
 
 # Compiled files in the theme.
-web/modules/custom/farm_page/css/bootstrap.min.css
+web/themes/custom/maybe_farm/css/bootstrap.min.css
 web/modules/custom/farm_page/css/effect.css
