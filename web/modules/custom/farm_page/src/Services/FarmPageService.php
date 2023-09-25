@@ -157,7 +157,7 @@ class FarmPageService {
       $product_info['product_created'] = $product_created[0]['value'];
       // Get Description.
       $product_description = $product->get('body')->getValue();
-      $product_info['description'] = $product_description[0]['value'];
+      $product_info['description'] = $this->truncateString($product_description[0]['value'], 55);
       // Get Category.
       $terms = $product->get('field_category')->getValue();
       $product_info['category'] = $this->getTaxonomyTerm($terms);
@@ -353,6 +353,26 @@ class FarmPageService {
       array_push($images_url, $url);
     }
     return $images_url;
+  }
+
+  /**
+   * Truncate a string if it exceeds a specified maximum length.
+   *
+   * @param string $inputString
+   *   The input string to truncate.
+   * @param int $maxLength
+   *   The maximum length of the output string.
+   *
+   * @return string
+   *   The truncated string, possibly with '...' added.
+   */
+  public function truncateString($inputString, $maxLength) {
+    if (mb_strlen($inputString, 'UTF-8') <= $maxLength) {
+      return $inputString;
+    }
+    else {
+      return mb_substr($inputString, 0, $maxLength, 'UTF-8') . '...';
+    }
   }
 
 }
