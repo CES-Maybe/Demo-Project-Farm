@@ -272,4 +272,49 @@ class FarmPageService {
     return $file->createFileUrl();
   }
 
+  /**
+   * Get products based on store id and categories id .
+   *
+   * @param int $owner_id
+   *   Owner id from url.
+   * @param iterable $categories_id
+   *   Categories id from Store.
+   *
+   * @return products
+   *   Return array of products
+   */
+  public function getProductByStore($owner_id, $categories_id = NULL) {
+    $farm_id = $this->getStoreIdByUserId($owner_id);
+    $entity_type_manager = \Drupal::entityTypeManager();
+    $entity_type = 'commerce_product';
+    $query = $entity_type_manager->getStorage($entity_type)->getQuery();
+    $query->condition('type', 'default');
+    if ($categories_id != NULL) {
+      $query->condition('field_category', $categories_id);
+    }
+    $query->condition('stores', $farm_id);
+    $result = $query->execute();
+    $products = $entity_type_manager->getStorage($entity_type)->loadMultiple($result);
+    return $this->getProductsInfomation($products);
+  }
+
+  /**
+   * Retrieve all terms from a specific vocabulary.
+   *
+   * @param string $vocabulary_machine_name
+   *   The machine name of the vocabulary.
+   *
+   * @return array
+   *   An array of taxonomy terms in the specified vocabulary.
+   */
+  public function getTermOfTaxonomy($vocabulary_machine_name) {
+    $terms = [];
+    if (!empty($vocabulary_machine_name)) {
+      $terms = \Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->loadTree($vocabulary_machine_name);
+    }
+    return $terms;
+  }
+
 }

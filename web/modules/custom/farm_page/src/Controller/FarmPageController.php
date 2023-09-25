@@ -123,6 +123,7 @@ class FarmPageController extends ControllerBase {
             'tags' => $tags,
             'featured_products' => $featured_products_info,
             'products_by_category' => $products_by_category,
+            'uid' => $uid,
           ],
           '#attached' => [
             'library' => ['farm_page/farm_page'],
@@ -147,6 +148,48 @@ class FarmPageController extends ControllerBase {
       ],
       '#attached' => [
         'library' => ['farm_page/list-farm'],
+      ],
+    ];
+  }
+
+  /**
+   * Build list farm.
+   *
+   * @return mixed
+   *   Return Farmr and Farm information
+   */
+  public function listProductOfFarm($uid, $categories_id = NULL) {
+    $store_id = $this->farmService->getStoreIdByUserId($uid);
+    $store = Store::load($store_id);
+    $products = $this->farmService->getProductByStore($uid, $categories_id);
+    $categories = $this->farmService->getTermOfTaxonomy('categories');
+    $address = $store->get('address')->getValue()[0];
+    $farm = [
+      'name' => $store->getName(),
+      'description' => !empty($store->get('field_description')) ? $store->get('field_description')->getValue()[0]['value'] : "",
+      'farm_images' => reset($this->farmService->getImagesUrlFromArray($store_images_field)),
+      'phone' => !empty($store->get('field_store_phone')) ? $store->get('field_store_phone')->getValue()[0]['value'] : "",
+      'email' => $store->getEmail(),
+      'address' => $address['address_line1'] . ', ' . $address['administrative_area'] . ', ' . $address['country_code'],
+    ];
+    $current_categories = 'All categories';
+    if ($categories_id == NULL) {
+      $current_categories = 'All categories';
+    }
+    elseif (count($products) != 0) {
+      $current_categories = $products[0]['category'][0]['name'];
+    }
+    return [
+      '#theme' => 'farm_product',
+      '#data' => [
+        'products' => $products,
+        'categories' => $categories,
+        'farm' => $farm,
+        'uid' => $uid,
+        'current_categories' => $current_categories,
+      ],
+      '#attached' => [
+        'library' => ['farm_page/farm-product'],
       ],
     ];
   }
