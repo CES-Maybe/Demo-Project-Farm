@@ -13,11 +13,28 @@ farm_page.farm_home_page:
     _controller: '\Drupal\farm_page\Controller\FarmPageController::myFarm'
   requirements:
     _permission: 'access content'
+
 farm_page.list_farm:
   path: 'farms'
   defaults:
     _title: 'Farm List'
     _controller: '\Drupal\farm_page\Controller\FarmPageController::listFarm'
+  requirements:
+    _permission: 'access content'
+
+farm_page.farm_product:
+  path: 'farm/{uid}/product'
+  defaults:
+    _title: 'List all product'
+    _controller: '\Drupal\farm_page\Controller\FarmPageController::listProductOfFarm'
+  requirements:
+    _permission: 'access content'
+    
+farm_page.farm_product_by_category:
+  path: 'farm/{uid}/product/{categories_id}'
+  defaults:
+    _title: 'List all product by category'
+    _controller: '\Drupal\farm_page\Controller\FarmPageController::listProductOfFarm'
   requirements:
     _permission: 'access content'
 

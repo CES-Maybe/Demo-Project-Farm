@@ -22,5 +22,11 @@ function farm_page_theme() {
         'data' => [],
       ],
     ],
+    'farm_product' => [
+      'template' => 'farm-product',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
   ];
 }

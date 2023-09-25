@@ -1,0 +1,51 @@
+<div class='farm-product-page'>
+  <div class="welcome">
+    <h3>
+      {{data.farm.name}}
+      Products
+    </h3>
+  </div>
+  <div class="dropdown">
+    <div class='filter-wrapper'>
+      <p>Search by category:</p>
+      <button class="dropbtn">{{data.current_categories}}</button>
+      <div class="dropdown-content">
+        <a href={{"/farm/" ~ data.uid ~ "/product"}}>All categories</a>
+        {% for category in data.categories %}
+          <a href={{"/farm/" ~ data.uid ~ "/product/" ~ category.tid}}>{{category.name}}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="products">
+    <div class="product-list">
+      {% for product in data.products %}
+        <div class="product-item">
+          <img src={{ product.product_images[0] }} alt="Farm Image" class="product-image">
+          <p class="product-id">PRODUCT CODE
+            {{ product.sku_list[0]['value'] }}</p>
+          <p class="product-name">{{ product.product_name }}</p>
+          <p class="product-description">{{ product.description|striptags }}</p>
+          <p class="product-price">${{ product.price[0]['number']|round }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="contact">
+    <h2>MEET OUR FARM</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fa fa-phone"></i>
+        <span class="value">{{data.farm.phone}}</span>
+      </div>
+      <div class="contact-item">
+        <i class="fa fa-envelope"></i>
+        <span class="value">{{data.farm.email}}</span>
+      </div>
+      <div class="contact-item">
+        <i class="fa fa-map-marker"></i>
+        <span class="value">{{data.farm.address}}</span>
+      </div>
+    </div>
+  </div>
+</div>
