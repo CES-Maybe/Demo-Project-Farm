@@ -38,3 +38,12 @@ farm_page.farm_product_by_category:
   requirements:
     _permission: 'access content'
 
+farm_page.search:
+  path: 'search/farm'
+  defaults:
+    _title: 'Search farm by name'
+    _controller: '\Drupal\farm_page\Controller\FarmPageController::searchFarm'
+  requirements:
+    _permission: 'access content'
+
+

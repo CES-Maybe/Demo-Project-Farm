@@ -1,0 +1,15 @@
+<div class="farm-list">
+  {% for store in data.stores %}
+    <a href={{"/farm/" ~ store.owner_id}}>
+      <div class="farm-item">
+        <img src={{store.image}} alt="Farm Image" class="farm-image">
+        <p class="farm-headline">
+          {{store.headline}}
+        </p>
+        <p class="farm-name">
+          {{store.name}}
+        </p>
+      </div>
+    </a>
+  {% endfor %}
+</div>

@@ -212,19 +212,31 @@ class FarmPageService {
   }
 
   /**
-   * Get all stores.
+   * Search for farms by name.
    *
-   * @return \Drupal\commerce_store\Entity\StoreInterface[]
-   *   An array of store entities.
+   * @param string|null $name
+   *   (optional) The name to search for. If provided, the search will be
+   *   filtered to match stores whose names contain the provided string.
+   *
+   * @return array
+   *   An array of store data that match the search criteria. Each element of
+   *   the array is an associative array representing a store's data.
    */
-  public function getAllStores() {
+  public function searchFarmsByName($name) {
     $storeStorage = $this->entityTypeManager->getStorage('commerce_store');
-    $stores = [];
-    foreach ($storeStorage->loadMultiple() as $store) {
-      $storeData = $this->getStoreData($store);
-      $stores[] = $storeData;
+    $query = $storeStorage->getQuery();
+
+    if ($name != NULL) {
+      $query->condition('name', $name, 'CONTAINS');
     }
-    return $stores;
+    $store_ids = $query->execute();
+    $stores = $storeStorage->loadMultiple($store_ids);
+    $storeDataList = [];
+    foreach ($stores as $store) {
+      $storeData = $this->getStoreData($store);
+      $storeDataList[] = $storeData;
+    }
+    return $storeDataList;
   }
 
   /**

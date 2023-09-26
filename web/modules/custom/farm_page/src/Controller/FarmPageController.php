@@ -7,6 +7,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\farm_page\Services\FarmPageService;
 use Drupal\user\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Returns responses for Farm Page routes.
@@ -140,12 +141,8 @@ class FarmPageController extends ControllerBase {
    *   Return Farmr and Farm information
    */
   public function listFarm() {
-    $stores = $this->farmService->getAllStores();
     return [
       '#theme' => 'list_farm',
-      '#data' => [
-        'stores' => $stores,
-      ],
       '#attached' => [
         'library' => ['farm_page/list-farm'],
       ],
@@ -191,6 +188,28 @@ class FarmPageController extends ControllerBase {
         'library' => ['farm_page/farm-product'],
       ],
     ];
+  }
+
+  /**
+   * Controller method to search for farms based on name.
+   *
+   * This method handles the AJAX request for searching farms by name and
+   * returning a JSON response with the rendered farm page view.
+   *
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   *   A JSON response containing the rendered farm page view.
+   */
+  public function searchFarm() {
+    $name = \Drupal::request()->get('name');
+    $stores = $this->farmService->searchFarmsByName($name);
+    $template = [
+      '#theme' => 'farm_page_views_farms',
+      '#data' => [
+        'stores' => $stores,
+      ],
+    ];
+    $rendered_template = \Drupal::service('renderer')->render($template);
+    return new JsonResponse(['content' => $rendered_template]);
   }
 
 }

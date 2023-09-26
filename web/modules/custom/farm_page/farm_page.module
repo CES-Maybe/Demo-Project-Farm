@@ -28,5 +28,11 @@ function farm_page_theme() {
         'data' => [],
       ],
     ],
+    'farm_page_views_farms' => [
+      'template' => 'farm-page-views-farms',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
   ];
 }
