@@ -247,7 +247,7 @@ class FarmPageService {
   private function getStoreData($store) {
     $storeData = [
       'name' => $store->getName(),
-      'image' => $this->getStoreImageUrl($store),
+      'image' => $this->getStoreImageUrl($store, 'field_image_front_page'),
       'headline' => $store->get('field_headline')->first()->getValue()['value'],
       'owner_id' => $store->getOwner()->id(),
     ];
@@ -263,13 +263,15 @@ class FarmPageService {
    *
    * @param \Drupal\commerce_store\Entity\StoreInterface $store
    *   The Drupal Commerce store entity for which to retrieve the image URL.
+   * @param string $fieldName
+   *   The name of the field needs to get the image url.
    *
    * @return string|null
    *   The URL of the store's image if available, or null if no image is found
    *   or if any required entities are missing.
    */
-  private function getStoreImageUrl($store) {
-    $imageField = $store->get('field_farm_image')->first();
+  private function getStoreImageUrl($store, $fieldName) {
+    $imageField = $store->get($fieldName)->first();
     if (!$imageField) {
       return NULL;
     }
@@ -346,7 +348,6 @@ class FarmPageService {
       $media = Media::load($image['target_id']);
       $fid = $media->getSource()->getSourceFieldValue($media);
       $file = File::load($fid);
-      // Get origin image URI.
       $image_uri = $file->getFileUri();
       $style_image = ImageStyle::load($style);
       $url = $style_image->buildUrl($image_uri);

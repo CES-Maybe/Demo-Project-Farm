@@ -167,7 +167,6 @@ class FarmPageController extends ControllerBase {
     $farm = [
       'name' => $store->getName(),
       'description' => !empty($store->get('field_description')) ? $store->get('field_description')->getValue()[0]['value'] : "",
-      'farm_images' => reset($this->farmService->getImagesUrlFromArray($store_images_field)),
       'phone' => !empty($store->get('field_store_phone')) ? $store->get('field_store_phone')->getValue()[0]['value'] : "",
       'email' => $store->getEmail(),
       'address' => $address['address_line1'] . ', ' . $address['administrative_area'] . ', ' . $address['country_code'],
