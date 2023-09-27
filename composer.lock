@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5240d9185a6d99fea7967c72d119407",
+    "content-hash": "a6271f99402b8bbc7a2a63b9d73c90d3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2769,6 +2769,70 @@
             }
         },
         {
+            "name": "drupal/commerce_shipping",
+            "version": "2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/commerce_shipping.git",
+                "reference": "8.x-2.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/commerce_shipping-8.x-2.6.zip",
+                "reference": "8.x-2.6",
+                "shasum": "29e24ea5133ec1fbb606902bcfcfac504d8bc607"
+            },
+            "require": {
+                "drupal/commerce": "^2.29",
+                "drupal/commerce_order": "*",
+                "drupal/commerce_price": "*",
+                "drupal/core": "^9.2 || ^10",
+                "drupal/physical": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.6",
+                    "datestamp": "1678443617",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "googletorp",
+                    "homepage": "https://www.drupal.org/user/386230"
+                },
+                {
+                    "name": "jsacksick",
+                    "homepage": "https://www.drupal.org/user/972218"
+                },
+                {
+                    "name": "mglaman",
+                    "homepage": "https://www.drupal.org/user/2416470"
+                },
+                {
+                    "name": "rszrama",
+                    "homepage": "https://www.drupal.org/user/49344"
+                }
+            ],
+            "description": "Provides shipping functionality for Commerce.",
+            "homepage": "http://drupal.org/project/commerce_shipping",
+            "support": {
+                "source": "https://git.drupalcode.org/project/commerce_shipping"
+            }
+        },
+        {
             "name": "drupal/commerce_stock",
             "version": "1.1.0",
             "source": {
@@ -4638,6 +4702,67 @@
                 "source": "http://git.drupal.org/project/panels.git",
                 "issues": "https://www.drupal.org/project/issues/panels",
                 "irc": "irc://irc.freenode.org/drupal-scotch"
+            }
+        },
+        {
+            "name": "drupal/physical",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/physical.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/physical-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "b5bbb81eda82babda21b50030da4894f623a419c"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "php": "^8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1680175173",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "Centarro",
+                    "homepage": "https://www.drupal.org/user/3661446"
+                },
+                {
+                    "name": "czigor",
+                    "homepage": "https://www.drupal.org/user/826222"
+                },
+                {
+                    "name": "jsacksick",
+                    "homepage": "https://www.drupal.org/user/972218"
+                },
+                {
+                    "name": "rszrama",
+                    "homepage": "https://www.drupal.org/user/49344"
+                }
+            ],
+            "description": "Physical supplies such fields as physical weight and dimensions.",
+            "homepage": "https://drupal.org/project/physical",
+            "support": {
+                "source": "https://git.drupalcode.org/project/physical"
             }
         },
         {

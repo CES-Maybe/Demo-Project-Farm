@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_unit
     - field.field.commerce_product_variation.default.field_available_quantity
+    - field.field.commerce_product_variation.default.weight
   module:
     - commerce_price
     - commerce_stock_field
@@ -44,3 +45,4 @@ hidden:
   product_id: true
   sku: true
   title: true
+  weight: true
