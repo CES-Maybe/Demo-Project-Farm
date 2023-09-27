@@ -8,7 +8,6 @@ dependencies:
     - commerce_price
     - field_layout
     - layout_builder
-    - layout_discovery
   enforced:
     module:
       - commerce_product
@@ -18,102 +17,8 @@ third_party_settings:
     settings:
       label: ''
   layout_builder:
-    enabled: true
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          d8a63ea5-5e84-4a85-ba40-01cb4b45d9da:
-            uuid: d8a63ea5-5e84-4a85-ba40-01cb4b45d9da
-            region: content
-            configuration:
-              id: 'field_block:commerce_order_item:default:created'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: timestamp
-                label: hidden
-                settings:
-                  date_format: medium
-                  custom_date_format: ''
-                  timezone: ''
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          b63df3e6-7097-472e-ae11-acf477de3149:
-            uuid: b63df3e6-7097-472e-ae11-acf477de3149
-            region: content
-            configuration:
-              id: 'field_block:commerce_order_item:default:purchased_entity'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_entity_view
-                label: above
-                settings:
-                  view_mode: default
-                  link: false
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-          9d4253ea-8376-4d0b-90cb-c31c594bf089:
-            uuid: 9d4253ea-8376-4d0b-90cb-c31c594bf089
-            region: content
-            configuration:
-              id: 'field_block:commerce_order_item:default:quantity'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: number_decimal
-                label: above
-                settings:
-                  thousand_separator: ''
-                  decimal_separator: .
-                  scale: 2
-                  prefix_suffix: true
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          f16e2720-d686-47b0-957f-6c7ab2b1a899:
-            uuid: f16e2720-d686-47b0-957f-6c7ab2b1a899
-            region: content
-            configuration:
-              id: 'field_block:commerce_order_item:default:unit_price'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: commerce_price_default
-                label: above
-                settings:
-                  strip_trailing_zeroes: false
-                  currency_display: symbol
-                third_party_settings: {  }
-            weight: 3
-            additional: {  }
-          5a35bbb3-7b6d-41fe-b29f-c4b9ae32d2ea:
-            uuid: 5a35bbb3-7b6d-41fe-b29f-c4b9ae32d2ea
-            region: content
-            configuration:
-              id: 'field_block:commerce_order_item:default:total_price'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: commerce_price_default
-                label: above
-                settings:
-                  strip_trailing_zeroes: false
-                  currency_display: symbol
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
-        third_party_settings: {  }
+    enabled: false
+    allow_custom: false
 _core:
   default_config_hash: a-MK2hTebnM3YwCg08ZKg7ItNkBUOsu3am_y0HIjTw8
 id: commerce_order_item.default.default
