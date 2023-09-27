@@ -6,11 +6,13 @@ dependencies:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_unit
     - field.field.commerce_product_variation.default.field_available_quantity
+    - field.field.commerce_product_variation.default.weight
   module:
     - commerce_price
     - commerce_stock_field
     - field_layout
     - layout_discovery
+    - physical
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -71,6 +73,15 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  weight:
+    type: physical_measurement_default
+    weight: 91
+    region: content
+    settings:
+      default_unit: ''
+      allow_unit_change: true
+      available_units: {  }
     third_party_settings: {  }
 hidden:
   created: true

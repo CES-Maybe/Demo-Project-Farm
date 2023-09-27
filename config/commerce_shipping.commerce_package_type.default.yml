@@ -1,0 +1,14 @@
+uuid: 0870bfeb-88e9-471f-bcaa-157351a07243
+langcode: en
+status: true
+dependencies: {  }
+id: default
+label: Default
+dimensions:
+  length: '10'
+  width: '10'
+  height: '10'
+  unit: m
+weight:
+  number: '10'
+  unit: kg

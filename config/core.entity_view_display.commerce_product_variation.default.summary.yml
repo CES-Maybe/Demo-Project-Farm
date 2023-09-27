@@ -7,6 +7,7 @@ dependencies:
     - core.entity_view_mode.commerce_product_variation.summary
     - field.field.commerce_product_variation.default.attribute_unit
     - field.field.commerce_product_variation.default.field_available_quantity
+    - field.field.commerce_product_variation.default.weight
   module:
     - commerce_price
     - field_layout
@@ -115,3 +116,4 @@ hidden:
   field_available_quantity: true
   price: true
   sku: true
+  weight: true
