@@ -250,28 +250,3 @@
     font-size: 65px;
   }
 }
-
-.thumbnail-img {
-  border: 1.5px solid;
-  border-color: var(--header-color);
-  border-radius: var(--bs-border-radius);
-}
-
-.thumbnail-img:hover {
-  border-color: black;
-  cursor: pointer;
-}
-
-.thumbnail-img:focus {
-  border: inset var(--secondary-color);
-}
-
-.back-btn {
-  text-decoration: none;
-  color: black;
-}
-
-#mainImage {
-  border: solid var(--header-color);
-  border-radius: var(--bs-border-radius);
-}
