@@ -1,9 +1,16 @@
 uuid: a6b7cd46-de17-42b2-9c7d-80cc1c5b639d
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - commerce_store
+    - farm_page
 id: customer
 label: Customer
 weight: 5
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access farm homepage'
+  - 'access list farm page'
+  - 'access list product of farm'
+  - 'view commerce_store'
