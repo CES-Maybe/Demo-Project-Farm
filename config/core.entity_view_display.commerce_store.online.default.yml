@@ -236,6 +236,7 @@ hidden:
   mail: true
   name: true
   prices_include_tax: true
+  shipping_countries: true
   tax_registrations: true
   timezone: true
   uid: true

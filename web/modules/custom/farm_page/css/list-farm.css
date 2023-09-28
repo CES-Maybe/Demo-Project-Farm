@@ -26,9 +26,9 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #141111;
-  padding: 5px;
+  padding: 6px;
   border-radius: 40px;
-  max-width: 300px;
+  max-width: 305px;
   height: 43px;
   margin-top: 40px;
 }
@@ -37,6 +37,7 @@
   outline: none;
   border: none;
   min-height: 20px;
+  padding: 0;
 }
 
 .search-farm .search-input:focus {

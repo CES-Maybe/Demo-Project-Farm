@@ -1,3 +1,6 @@
+@import './effect.css';
+@import './farm-page.css';
+
 .farm-product-page {
   box-shadow: 0 0 10px rgb(0 0 0 / 10%);
 }
@@ -36,6 +39,13 @@
   display: flex;
 }
 
+.filter-wrapper p {
+  margin: 0;
+  padding-right: 15px;
+  text-align: center;
+  padding-top: 10px;
+}
+
 .dropbtn {
   padding: 10px 20px;
   border: none;
@@ -49,7 +59,7 @@
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
   z-index: 3;
-  margin-top: 57px;
+  margin-top: 44px;
   margin-left: 156px;
 }
 
