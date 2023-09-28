@@ -10,11 +10,7 @@
   border-color: var(--header-color);
   border-radius: var(--bs-border-radius);
   width: 72%;
-}
-
-input[value='Add to cart'],
-input[value='Out of stock'] {
-  padding-inline-start: 22.8%;
+  justify-content: center;
 }
 
 .button--add-to-cart:hover {
@@ -42,12 +38,6 @@ input[value='Out of stock'] {
 @media (min-width: 1024px) {
   .form-number {
     width: 72%;
-  }
-}
-
-@media (min-width: 1280px) {
-  input[value='Add to cart'] {
-    padding-left: 22.8%;
   }
 }
 
@@ -133,4 +123,35 @@ input[value='Out of stock'] {
 .placeholder {
   background-color: black;
   opacity: 1;
+}
+
+.thumbnail-img {
+  border: 1.5px solid;
+  border-color: var(--header-color);
+  border-radius: var(--bs-border-radius);
+}
+
+.thumbnail-img:hover {
+  border-color: black;
+  cursor: pointer;
+}
+
+.thumbnail-img:focus {
+  border: inset var(--secondary-color);
+}
+
+.back-btn {
+  text-decoration: none;
+  color: black;
+}
+
+.back-btn:focus {
+  outline: solid 2px var(--header-color);
+  border-radius: var(--bs-border-radius);
+  color: var(--header-color);
+}
+
+#mainImage {
+  border: solid var(--header-color);
+  border-radius: var(--bs-border-radius);
 }
