@@ -87,11 +87,6 @@
   left: 12%;
 }
 
-.main-bg {
-  background-color: var(--main-color);
-  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
-}
-
 .store-taglines > a {
   text-decoration: none;
   color: black;

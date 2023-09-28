@@ -155,3 +155,32 @@
   border: solid var(--header-color);
   border-radius: var(--bs-border-radius);
 }
+
+.main-bg {
+  background-color: var(--main-color);
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+}
+
+/* Style the farm name */
+.details-farm-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3cfc4;
+  width: 100%;
+  height: 80px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Center the intro-farm section */
+.details-intro-farm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
