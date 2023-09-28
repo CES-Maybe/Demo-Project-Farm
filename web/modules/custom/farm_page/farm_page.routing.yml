@@ -12,7 +12,7 @@ farm_page.farm_home_page:
     _title: 'Farm'
     _controller: '\Drupal\farm_page\Controller\FarmPageController::myFarm'
   requirements:
-    _permission: 'access content'
+    _permission: 'access farm homepage'
 
 farm_page.list_farm:
   path: 'farms'
@@ -20,7 +20,7 @@ farm_page.list_farm:
     _title: 'Farm List'
     _controller: '\Drupal\farm_page\Controller\FarmPageController::listFarm'
   requirements:
-    _permission: 'access content'
+    _permission: 'access list farm page'
 
 farm_page.farm_product:
   path: 'farm/{uid}/product'
@@ -28,7 +28,7 @@ farm_page.farm_product:
     _title: 'List all product'
     _controller: '\Drupal\farm_page\Controller\FarmPageController::listProductOfFarm'
   requirements:
-    _permission: 'access content'
+    _permission: 'access list product of farm'
     
 farm_page.farm_product_by_category:
   path: 'farm/{uid}/product/{categories_id}'
@@ -36,7 +36,7 @@ farm_page.farm_product_by_category:
     _title: 'List all product by category'
     _controller: '\Drupal\farm_page\Controller\FarmPageController::listProductOfFarm'
   requirements:
-    _permission: 'access content'
+    _permission: 'access list product of farm'
 
 farm_page.search:
   path: 'search/farm'
@@ -44,6 +44,6 @@ farm_page.search:
     _title: 'Search farm by name'
     _controller: '\Drupal\farm_page\Controller\FarmPageController::searchFarm'
   requirements:
-    _permission: 'access content'
+    _permission: 'access list farm page'
 
 

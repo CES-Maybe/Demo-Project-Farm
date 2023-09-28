@@ -1,4 +1,9 @@
-administer farm_page configuration:
-  title: 'Administer farm_page configuration'
-  description: 'Optional description.'
-  restrict access: true
+'access list farm page':
+  title: 'Access list farm page'
+  description: Allow user to access list farm page
+'access farm homepage':
+  title: 'Access farm homepage'
+  description: Allow user to access farm homepage
+'access list product of farm':
+  title: 'Access list product of farm'
+  description: Allow user to access list product of farm
