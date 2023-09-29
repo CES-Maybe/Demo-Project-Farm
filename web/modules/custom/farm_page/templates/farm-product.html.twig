@@ -20,14 +20,14 @@
   <div class="products">
     <div class="product-list">
       {% for product in data.products %}
-        <div class="product-item">
+        <a href={{ "/product/" ~ product.product_id }} class="product-item">
           <img src={{ product.product_images[0] }} alt="Farm Image" class="product-image">
           <p class="product-id">PRODUCT CODE
             {{ product.sku_list[0]['value'] }}</p>
           <p class="product-name">{{ product.product_name }}</p>
           <p class="product-description">{{ product.description|striptags }}</p>
           <p class="product-price">${{ product.price[0]['number']|round }}</p>
-        </div>
+        </a>
       {% endfor %}
     </div>
   </div>
